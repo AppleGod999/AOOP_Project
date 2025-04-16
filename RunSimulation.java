@@ -43,5 +43,14 @@ public class RunSimulation {
         // Calculate risk level
         String risk = testDebris.calculateRiskLevel();
         System.out.println("Risk Level: " + risk);
+
+        //need to make a while loop for it but this is just an example
+        UI screen = new UI();
+        int choice = screen.displayMenu();
+        if (choice == 1){
+            screen.displayScientist();
+        }
+
+
     }
 }

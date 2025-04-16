@@ -2,7 +2,7 @@
  * Abstract class representing a general space object in orbit.
  * This class provides common attributes and methods shared by debris and satellite objects.
  * 
- * @author 
+ * @author Miguel
  * @version 1.0
  */
 public abstract class SpaceObject {
