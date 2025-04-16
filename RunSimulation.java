@@ -48,7 +48,7 @@ public class RunSimulation {
         UI screen = new UI();
         int choice = screen.displayMenu();
         if (choice == 1){
-            screen.displayScientist();
+            int scienceChoice = screen.displayScientist();
         }
 
 

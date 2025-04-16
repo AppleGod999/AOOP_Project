@@ -9,21 +9,21 @@ public class UI {
         System.out.println("\t3.Policymaker");
         System.out.println("\t4.Adminstrator");
 
-        int choice = scanner.nextInt();
-        scanner.close();
-        return choice;
+
+
+        return scanner.nextInt();
     }
     //thinking of adding some sort of security check
     // like checking for if a scientist exist via id
     int displayScientist(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Scientist:");
         System.out.println("\t1.Track Objects in Space");
         System.out.println("\t2.Assess Orbit Status");
         System.out.println("\t3.Back");
 
-        int choice = scanner.nextInt();
-        scanner.close();
-        return choice;
+        return sc.nextInt();
     }
 
     void displaySpaceReg(){
