@@ -15,7 +15,7 @@ public class UI {
     }
     //thinking of adding some sort of security check
     // like checking for if a scientist exist via id
-    void displayScientist(){
+    int displayScientist(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("\t1.Track Objects in Space");
         System.out.println("\t2.Assess Orbit Status");
@@ -23,6 +23,7 @@ public class UI {
 
         int choice = scanner.nextInt();
         scanner.close();
+        return choice;
     }
 
     void displaySpaceReg(){
