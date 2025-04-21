@@ -18,6 +18,7 @@ public class RunSimulation {
         Map<Integer,SpaceObject> data = file.parseCsv();
         boolean done = false;
         UI screen = new UI();
+        Logger log = new Logger("logs/");
 
         while (!done){
             int choice = screen.displayMenu();
