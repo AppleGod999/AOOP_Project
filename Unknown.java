@@ -1,7 +1,5 @@
-import java.util.*;
-import java.io.*;
+public class Unknown extends SpaceObject {
 
-public class Satellite extends SpaceObject{
 
     private boolean isNominated;
     private boolean hasDossier;
@@ -10,8 +8,10 @@ public class Satellite extends SpaceObject{
     private boolean stillInOrbit;
     private String riskLevel;
 
-
-    public Satellite(String recordId, String noradCatId, String satelliteName,
+    // =====================
+    //constructor
+    // =====================
+    public Unknown(String recordId, String noradCatId, String satelliteName,
                   String country, String orbitType, int launchYear, String launchSite,
                   double longitude, double avgLongitude, String geohash, int daysOld,
                   boolean isNominated, boolean hasDossier, boolean isUnknownObject, long conjunctionCount) {

@@ -1,22 +1,28 @@
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 
 public class Filereader {
 
-    SpaceObject[] parseCsv() throws FileNotFoundException {
+    Map<Integer,SpaceObject> parseCsv() throws FileNotFoundException {
         File file = new File("rso_metrics.csv");
         Scanner sc = new Scanner(file);
-        SpaceObject[] arr = new SpaceObject[100];
-//need to finish parser
-//        while(sc.hasNext()){
-//
-//
-//
-//        }
 
+        SpaceObject factory = null;
 
+        Map<Integer,SpaceObject> map = new HashMap<>();
 
-        return new SpaceObject[0];
+        sc.nextLine();
+        while(sc.hasNext()){
+            String[] data = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+
+            //System.out.println(data[6]);
+
+            SpaceObject so = SpaceObject.create(data[5],data);
+
+            map.put(Integer.parseInt(data[0]),so);
+        }
+
+        return map;
     }
 }
 

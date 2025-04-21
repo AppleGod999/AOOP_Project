@@ -61,5 +61,79 @@ public abstract class SpaceObject {
     }
 
     //(optionally, add getters/setters later if needed depending on the need of the project as we go)
+
+    public static SpaceObject create (String type,String[] data){
+
+        if(type.equals("DEBRIS")){
+            return new Debris(
+                    data[0], //record_id
+                    data[1], //norad_id
+                    data[2], //satellite name
+                    data[3], //country
+                    data[4], // approx orbit
+                    Integer.parseInt(data[6].trim()), // launch year
+                    data[7], // launch_site
+                    Double.parseDouble(data[8].trim()), //longitude
+                    Double.parseDouble(data[9].trim()), //avg longitude
+                    data[10], //geohash
+                    Integer.parseInt(data[18].trim()), //days old
+                    Boolean.parseBoolean(data[12].trim()), //is nominated
+                    Boolean.parseBoolean(data[14].trim()), //has dossier
+                    Boolean.parseBoolean(data[20].trim()), //isUnknown
+                    Long.parseLong(data[19].trim()));//conjunction
+        }else if (type.equals("SATELLITE")){
+            return new Satellite(
+                    data[0], //record_id
+                    data[1], //norad_id
+                    data[2], //satellite name
+                    data[3], //country
+                    data[4], // approx orbit
+                    Integer.parseInt(data[6].trim()), // launch year
+                    data[7], // launch_site
+                    Double.parseDouble(data[8].trim()), //longitude
+                    Double.parseDouble(data[9].trim()), //avg longitude
+                    data[10], //geohash
+                    Integer.parseInt(data[18].trim()), //days old
+                    Boolean.parseBoolean(data[12].trim()), //is nominated
+                    Boolean.parseBoolean(data[14].trim()), //has dossier
+                    Boolean.parseBoolean(data[20].trim()), //isUnknown
+                    Long.parseLong(data[19].trim()));//conjunction
+        }else if (type.equals("PAYLOAD")){
+            return new Payload(
+                    data[0], //record_id
+                    data[1], //norad_id
+                    data[2], //satellite name
+                    data[3], //country
+                    data[4], // approx orbit
+                    Integer.parseInt(data[6].trim()), // launch year
+                    data[7], // launch_site
+                    Double.parseDouble(data[8].trim()), //longitude
+                    Double.parseDouble(data[9].trim()), //avg longitude
+                    data[10], //geohash
+                    Integer.parseInt(data[18].trim()), //days old
+                    Boolean.parseBoolean(data[12].trim()), //is nominated
+                    Boolean.parseBoolean(data[14].trim()), //has dossier
+                    Boolean.parseBoolean(data[20].trim()), //isUnknown
+                    Long.parseLong(data[19]));//conjunction
+        }else if(type.equals("UNKNOWN")){
+            return new Unknown(
+                    data[0], //record_id
+                    data[1], //norad_id
+                    data[2], //satellite name
+                    data[3], //country
+                    data[4], // approx orbit
+                    Integer.parseInt(data[6].trim()), // launch year
+                    data[7], // launch_site
+                    Double.parseDouble(data[8].trim()), //longitude
+                    Double.parseDouble(data[9].trim()), //avg longitude
+                    data[10], //geohash
+                    Integer.parseInt(data[18].trim()), //days old
+                    Boolean.parseBoolean(data[12].trim()), //is nominated
+                    Boolean.parseBoolean(data[14].trim()), //has dossier
+                    Boolean.parseBoolean(data[20].trim()), //isUnknown
+                    Long.parseLong(data[19].trim()));//conjunction
+        }
+        return null;
+    }
 }
 

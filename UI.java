@@ -8,8 +8,7 @@ public class UI {
         System.out.println("\t2.Space Agency Representative");
         System.out.println("\t3.Policymaker");
         System.out.println("\t4.Adminstrator");
-
-
+        System.out.println("\t5.Exit");
 
         return scanner.nextInt();
     }

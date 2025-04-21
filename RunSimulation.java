@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.util.Map;
+import java.util.HashMap;
+
 /**
  * Simple test runner to verify Debris and SpaceObject functionality.
  * This version avoids CSV loading and uses hardcoded values.
@@ -7,49 +11,29 @@
  */
 public class RunSimulation {
 
-    public static void main(String[] args) {
-        System.out.println("=== Testing Debris and SpaceObject Classes ===");
-
-        // Create a test Debris object with simulated values
-        Debris testDebris = new Debris(
-            "12345",                 // recordId
-            "56789",                 // noradCatId
-            "TEST-SAT-1",            // satelliteName
-            "US",                    // country
-            "LEO",                   // orbitType
-            2005,                    // launchYear
-            "AFETR",                 // launchSite
-            25.0,                    // longitude
-            20.0,                    // avgLongitude
-            "9q9hv",                 // geohash
-            14000,                  // daysOld
-            false,                  // isNominated
-            true,                   // hasDossier
-            false,                  // isUnknownObject
-            5                       // conjunctionCount
-        );
-
-        // Display the debris info
-        testDebris.displayInfo();
-
-        // Calculate orbital drift
-        double drift = testDebris.calculateDrift();
-        System.out.println("Calculated Drift: " + drift);
-
-        // Assess orbit status
-        testDebris.assessOrbitStatus();
-        System.out.println("Still in Orbit? " + (testDebris.isStillInOrbit() ? "Yes" : "No"));
-
-        // Calculate risk level
-        String risk = testDebris.calculateRiskLevel();
-        System.out.println("Risk Level: " + risk);
-
+    public static void main(String[] args) throws FileNotFoundException {
         //need to make a while loop for it but this is just an example
+
+        Filereader file = new Filereader();
+        Map<Integer,SpaceObject> data = file.parseCsv();
+        boolean done = false;
         UI screen = new UI();
-        int choice = screen.displayMenu();
-        if (choice == 1){
-            int scienceChoice = screen.displayScientist();
+
+        while (!done){
+            int choice = screen.displayMenu();
+            if (choice == 1){
+                int scienceChoice = screen.displayScientist();
+            }else if (choice == 2){
+
+            }else if (choice == 3){
+
+            }else if (choice == 4){
+
+            }else if (choice == 5){
+                done = true;
+            }
         }
+
 
 
     }

@@ -1,7 +1,4 @@
-import java.util.*;
-import java.io.*;
-
-public class Satellite extends SpaceObject{
+public class Payload extends SpaceObject{
 
     private boolean isNominated;
     private boolean hasDossier;
@@ -11,7 +8,7 @@ public class Satellite extends SpaceObject{
     private String riskLevel;
 
 
-    public Satellite(String recordId, String noradCatId, String satelliteName,
+    public Payload(String recordId, String noradCatId, String satelliteName,
                   String country, String orbitType, int launchYear, String launchSite,
                   double longitude, double avgLongitude, String geohash, int daysOld,
                   boolean isNominated, boolean hasDossier, boolean isUnknownObject, long conjunctionCount) {
