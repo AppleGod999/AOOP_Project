@@ -25,10 +25,32 @@ public class UI {
         return sc.nextInt();
     }
 
-    void displaySpaceReg(){
+    int displaySpaceReg(){
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Analyze Long-term Impact");
+        System.out.println("2. Generate Density Reports");
+        System.out.println("3. Back");
+
+        return sc.nextInt();
     }
-    void displayAdmin(){
 
+    int displayPolicymaker(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. Review Reports on Debris Impact");
+        System.out.println("2. Asses Risk Levels for Future Space Missions");
+        System.out.println("3. Back");
+        return sc.nextInt();
+    }
+
+    int displayAdmin(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. Create User");
+        System.out.println("2. Manage User");
+        System.out.println("3. Delete User");
+        System.out.println("4. Back");
+        return sc.nextInt();
     }
 }
