@@ -64,7 +64,7 @@ public class Debris extends SpaceObject {
      *assess if debris is still in orbit using logic based on assignment criteria.
      */
     public void assessOrbitStatus() {
-        boolean hasOrbit = orbitType != null && !orbitType.isEmpty();
+        boolean hasOrbit = (orbitType != null && !orbitType.isEmpty()) && !orbitType.equals("Unknown Orbit Category");
         boolean validLongitude = longitude != 0.0;
         boolean recentEnough = daysOld < 15000;
         boolean seenRecently = conjunctionCount >= 1;
@@ -76,15 +76,15 @@ public class Debris extends SpaceObject {
      *calculates risk level based on orbital drift.
      * @return "High", "Moderate", or "Low"
      */
-    public String calculateRiskLevel() {
+    public void calculateRiskLevel() {
         double drift = calculateDrift();
         if (drift > 50) {
-            riskLevel = "High";
+            riskLevel = "HIGH";
         } else if (drift > 10) {
-            riskLevel = "Moderate";
+            riskLevel = "MODERATE";
         } else {
-            riskLevel = "Low";
+            riskLevel = "LOW";
         }
-        return riskLevel;
+
     }
 }

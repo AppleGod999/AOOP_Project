@@ -24,6 +24,8 @@ public abstract class SpaceObject {
     protected double avgLongitude;
     protected String geohash;
     protected int daysOld;
+    protected boolean stillInOrbit;
+    protected String riskLevel;
 
     // =====================
     // Constructor
