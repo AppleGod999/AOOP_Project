@@ -23,6 +23,9 @@ public class Payload extends SpaceObject{
 
     @Override
     public void displayInfo() {
-
+        System.out.println("Payload ID: " + recordId + " | Name: " + satelliteName +
+                " | Country: " + country + " | Orbit: " + orbitType + " | Launch Year: " + launchYear +
+                " | Longitude: " + longitude + " | Avg Longitude " + avgLongitude + " | Geohash: " + geohash +
+                " | Days Old: " + daysOld);
     }
 }

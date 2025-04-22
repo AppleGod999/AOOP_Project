@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.SyncFailedException;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -20,6 +21,25 @@ public class RunSimulation {
         UI screen = new UI();
         Logger log = new Logger("logs/");
 
+        Map<Integer,Debris> debrisMap = new HashMap<>();
+        Map<Integer,RocketBody> RocketMap = new HashMap<>();
+        Map<Integer,Payload> payloadMap = new HashMap<>();
+        Map<Integer,Unknown> unknownMap = new HashMap<>();
+
+        for (Map.Entry<Integer,SpaceObject> e : data.entrySet()) {
+            Integer id = e.getKey();
+            SpaceObject so = e.getValue();
+            if (so instanceof Debris){
+                debrisMap.put(id, (Debris)so);
+            }else if (so instanceof RocketBody){
+                RocketMap.put(id, (RocketBody)so);
+            }else if (so instanceof Payload){
+                payloadMap.put(id, (Payload)so);
+            }else if (so instanceof Unknown){
+                unknownMap.put(id, (Unknown)so);
+            }
+        }
+
         while (!done){
             int choice = screen.displayMenu();
             if (choice == 1){
@@ -28,10 +48,38 @@ public class RunSimulation {
                     int scienceChoice = screen.displayScientist();
 
                     if (scienceChoice == 1){
+                        int track = screen.showTrackObjects();
+                        if (track == 1) {
+                            for (RocketBody rb : RocketMap.values()) {
+                                rb.displayInfo();
+                            }
+                        }else if (track == 2){
+                            for (Debris d : debrisMap.values()) {
+                                d.displayInfo();
+                            }
+                        }else if (track == 3){
+                            for (Payload p : payloadMap.values()) {
+                                p.displayInfo();
+                            }
+                        }else if (track == 4){
+                            for (Unknown u : unknownMap.values()) {
+                                u.displayInfo();
+                            }
+                        }
+                    }else if (scienceChoice == 2){
+                        int sob = screen.showOrbitStatus();
 
-                    }if (scienceChoice == 2){
+                        if(sob == 1){
+                            Map<Integer, SpaceObject> leoObject = SpaceObject.sortLeo(data);
+                            for (SpaceObject so : leoObject.values()) {
+                                so.displayInfo();
+                            }
+                        }else if(sob == 2){
 
-                    }if (scienceChoice == 3){
+                        }else{
+                            System.out.println("Invalid Choice");
+                        }
+                    }else if (scienceChoice == 3){
                         scienceDone = true;
                     }else{
                         System.out.println("Invalid Choice");

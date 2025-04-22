@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Abstract class representing a general space object in orbit.
  * This class provides common attributes and methods shared by debris and satellite objects.
@@ -81,8 +84,8 @@ public abstract class SpaceObject {
                     Boolean.parseBoolean(data[14].trim()), //has dossier
                     Boolean.parseBoolean(data[20].trim()), //isUnknown
                     Long.parseLong(data[19].trim()));//conjunction
-        }else if (type.equals("SATELLITE")){
-            return new Satellite(
+        }else if (type.equals("ROCKET BODY")){
+            return new RocketBody(
                     data[0], //record_id
                     data[1], //norad_id
                     data[2], //satellite name
@@ -134,6 +137,19 @@ public abstract class SpaceObject {
                     Long.parseLong(data[19].trim()));//conjunction
         }
         return null;
+    }
+
+    public static Map<Integer, SpaceObject> sortLeo(Map<Integer, SpaceObject> map) {
+        Map<Integer, SpaceObject> leoMap = new HashMap<Integer, SpaceObject>();
+
+        for(Map.Entry<Integer, SpaceObject> so : map.entrySet()) {
+            int id = so.getKey();
+            SpaceObject val = so.getValue();
+            if (val.orbitType.equals("LEO")){
+                leoMap.put(id,val);
+            }
+        }
+        return leoMap;
     }
 }
 

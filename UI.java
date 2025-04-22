@@ -25,6 +25,26 @@ public class UI {
         return sc.nextInt();
     }
 
+    int showTrackObjects(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Track Objects:");
+        System.out.println("\t1.Rocket Body");
+        System.out.println("\t2.Debris");
+        System.out.println("\t3.Payload");
+        System.out.println("\t4.Unknown");
+
+        return sc.nextInt();
+    }
+
+    int showOrbitStatus(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Orbit Status:");
+        System.out.println("\t1.Track Objects in LEO");
+        System.out.println("\t2.Assess if debris still in orbit");
+        return sc.nextInt();
+    }
+
     int displaySpaceReg(){
 
         Scanner sc = new Scanner(System.in);
@@ -53,4 +73,5 @@ public class UI {
         System.out.println("4. Back");
         return sc.nextInt();
     }
+
 }
