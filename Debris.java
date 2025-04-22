@@ -13,7 +13,7 @@ public class Debris extends SpaceObject {
     private boolean isNominated;
     private boolean hasDossier;
     private boolean isUnknownObject;
-    private long conjunctionCount;
+    private final long conjunctionCount;
     private boolean stillInOrbit;
     private String riskLevel;
 
@@ -48,12 +48,23 @@ public class Debris extends SpaceObject {
     // =====================
     // Implemented Method
     // =====================
+
+    /**
+    *displays info from debris
+    */
     @Override
     public void displayInfo() {
         System.out.println("Debris ID: " + recordId + " | Name: " + satelliteName +
                 " | Country: " + country + " | Orbit: " + orbitType + " | Launch Year: " + launchYear +
                 " | Longitude: " + longitude + " | Avg Longitude " + avgLongitude + " | Geohash: " + geohash +
                 " | Days Old: " + daysOld);
+    }
+
+    public String display(){
+        return "Debris ID: " + recordId + " | Name: " + satelliteName +
+                " | Country: " + country + " | Orbit: " + orbitType + " | Launch Year: " + launchYear +
+                " | Longitude: " + longitude + " | Avg Longitude " + avgLongitude + " | Geohash: " + geohash +
+                " | Days Old: " + daysOld;
     }
 
     // =====================

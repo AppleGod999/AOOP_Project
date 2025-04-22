@@ -1,0 +1,51 @@
+Debris in Orbit: 0
+Debris out of Orbit: 98
+Debris ID: 21249 | Name: SL-8 DEB | Country: CIS | Orbit: LEO | Launch Year: 1991 | Longitude: -162.5254582 | Avg Longitude -98.07395074 | Geohash: "62.925556,40.577778" | Days Old: 12409
+Debris ID: 28039 | Name: ARIANE 44L DEB | Country: FR | Orbit: HEO | Launch Year: 1991 | Longitude: -109.6053068 | Avg Longitude 33.16837829 | Geohash: "5.222222,-52.773611" | Days Old: 12437
+Debris ID: 2700 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Launch Year: 1965 | Longitude: 69.41702735 | Avg Longitude 102.4315405 | Geohash: "28.4917337,-80.5825555" | Days Old: 21638
+Debris ID: 20626 | Name: SL-16 DEB | Country: CIS | Orbit: LEO | Launch Year: 1990 | Longitude: 73.31951716 | Avg Longitude -41.96560243 | Geohash: "45.965,63.305" | Days Old: 12675
+Debris ID: 13460 | Name: COSMOS 1275 DEB | Country: CIS | Orbit: LEO | Launch Year: 1981 | Longitude: 164.0172556 | Avg Longitude -50.78371491 | Geohash: "62.925556,40.577778" | Days Old: 15949
+Debris ID: 26005 | Name: SL-14 DEB | Country: CIS | Orbit: LEO | Launch Year: 1991 | Longitude: 9.339711283 | Avg Longitude 22.61155748 | Geohash: "62.925556,40.577778" | Days Old: 12181
+Debris ID: 35350 | Name: PSLV DEB | Country: IND | Orbit: LEO | Launch Year: 2001 | Longitude: -19.90037801 | Avg Longitude 94.22048479 | Geohash: "13.7178,80.2" | Days Old: 8504
+Debris ID: 33558 | Name: ARIANE 2 DEB | Country: FR | Orbit: HEO | Launch Year: 1989 | Longitude: -166.7406377 | Avg Longitude 133.0162242 | Geohash: "5.222222,-52.773611" | Days Old: 13155
+Debris ID: 38296 | Name: CZ-4C DEB | Country: PRC | Orbit: LEO | Launch Year: 2010 | Longitude: -91.65614593 | Avg Longitude -30.67934984 | Geohash: "38.849086,111.608497" | Days Old: 5204
+Debris ID: 29210 | Name: SCOUT G-1 DEB | Country: US | Orbit: LEO | Launch Year: 1987 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "34.742221,-120.57243" | Days Old: 13654
+Debris ID: 48539 | Name: SL-12 DEB | Country: CIS | Orbit: HEO | Launch Year: 2008 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "45.965,63.305" | Days Old: 5974
+Debris ID: 31518 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 30750 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: -131.0859727 | Avg Longitude 149.0198411 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 40862 | Name: CZ-3C DEB | Country: PRC | Orbit: HEO | Launch Year: 2012 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "28.246017,102.026556" | Days Old: 4727
+Debris ID: 39840 | Name: SL-8 DEB | Country: CIS | Orbit: LEO | Launch Year: 1991 | Longitude: -170.9526895 | Avg Longitude -112.6118862 | Geohash: "62.925556,40.577778" | Days Old: 12409
+Debris ID: 61354 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Launch Year: 2024 | Longitude: 0.0 | Avg Longitude 32.2282236 | Geohash: "38.849086,111.608497" | Days Old: 180
+Debris ID: 32558 | Name: DELTA 4H DEB | Country: US | Orbit: Unknown Orbit Category | Launch Year: 2007 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "28.4917337,-80.5825555" | Days Old: 6293
+Debris ID: 41262 | Name: NOAA 16 DEB | Country: US | Orbit: LEO | Launch Year: 2000 | Longitude: -19.50160663 | Avg Longitude -11.56501484 | Geohash: "34.742221,-120.57243" | Days Old: 8900
+Debris ID: 38576 | Name: BREEZE-M DEB | Country: CIS | Orbit: HEO | Launch Year: 2008 | Longitude: -26.56226664 | Avg Longitude -78.82274015 | Geohash: "45.965,63.305" | Days Old: 6169
+Debris ID: 41009 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 30005 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: 132.5500054 | Avg Longitude -71.52760996 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 39350 | Name: CZ-3C DEB | Country: PRC | Orbit: HEO | Launch Year: 2010 | Longitude: -133.5762562 | Avg Longitude -101.9103117 | Geohash: "28.246017,102.026556" | Days Old: 5208
+Debris ID: 23479 | Name: SL-19 DEB | Country: CIS | Orbit: LEO | Launch Year: 1994 | Longitude: 164.320848 | Avg Longitude 35.19114769 | Geohash: "45.965,63.305" | Days Old: 10996
+Debris ID: 46525 | Name: FREGAT DEB | Country: CIS | Orbit: LEO | Launch Year: 2011 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "45.965,63.305" | Days Old: 4948
+Debris ID: 41280 | Name: NOAA 16 DEB | Country: US | Orbit: LEO | Launch Year: 2000 | Longitude: 65.61059708 | Avg Longitude 132.8474932 | Geohash: "34.742221,-120.57243" | Days Old: 8900
+Debris ID: 10436 | Name: COSMOS 839 DEB | Country: CIS | Orbit: LEO | Launch Year: 1976 | Longitude: 29.39840935 | Avg Longitude -32.93402367 | Geohash: "62.925556,40.577778" | Days Old: 17741
+Debris ID: 30155 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: -137.886235 | Avg Longitude 31.22346425 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 21453 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Launch Year: 1975 | Longitude: 136.6945894 | Avg Longitude -145.4078904 | Geohash: "34.742221,-120.57243" | Days Old: 18133
+Debris ID: 27729 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Launch Year: 1977 | Longitude: 156.6135471 | Avg Longitude -46.53318009 | Geohash: "28.4917337,-80.5825555" | Days Old: 17370
+Debris ID: 35796 | Name: COSMOS 2251 DEB | Country: CIS | Orbit: LEO | Launch Year: 1993 | Longitude: 130.7502125 | Avg Longitude 0.0 | Geohash: "62.925556,40.577778" | Days Old: 11554
+Debris ID: 4821 | Name: THORAD AGENA D DEB | Country: US | Orbit: LEO | Launch Year: 1970 | Longitude: 178.2103203 | Avg Longitude -72.04940003 | Geohash: "34.742221,-120.57243" | Days Old: 20024
+Debris ID: 35670 | Name: COSMOS 2251 DEB | Country: CIS | Orbit: LEO | Launch Year: 1993 | Longitude: 39.99585443 | Avg Longitude 50.95457541 | Geohash: "62.925556,40.577778" | Days Old: 11554
+Debris ID: 52828 | Name: ATLAS 5 CENTAUR DEB | Country: US | Orbit: HEO | Launch Year: 2014 | Longitude: -17.6569177 | Avg Longitude 1.314486171 | Geohash: "28.4917337,-80.5825555" | Days Old: 3791
+Debris ID: 39645 | Name: COSMOS 1867 COOLANT | Country: CIS | Orbit: LEO | Launch Year: 1987 | Longitude: 142.5517496 | Avg Longitude 26.19027854 | Geohash: "45.965,63.305" | Days Old: 13722
+Debris ID: 55520 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Launch Year: 2022 | Longitude: -18.74394719 | Avg Longitude 115.2530708 | Geohash: "38.849086,111.608497" | Days Old: 814
+Debris ID: 29922 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: -21.84739066 | Avg Longitude -42.29037244 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 29539 | Name: CZ-4B DEB | Country: PRC | Orbit: LEO | Launch Year: 2006 | Longitude: 26.25180283 | Avg Longitude 127.1089658 | Geohash: "38.849086,111.608497" | Days Old: 6857
+Debris ID: 53093 | Name: COSMOS 2251 DEB | Country: CIS | Orbit: LEO | Launch Year: 1993 | Longitude: -1.027667928 | Avg Longitude 145.8261586 | Geohash: "62.925556,40.577778" | Days Old: 11554
+Debris ID: 52967 | Name: ATLAS 5 CENTAUR DEB | Country: US | Orbit: HEO | Launch Year: 2018 | Longitude: 0.0 | Avg Longitude 0.0 | Geohash: "28.4917337,-80.5825555" | Days Old: 2300
+Debris ID: 10730 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Launch Year: 1975 | Longitude: -27.86336164 | Avg Longitude -80.3044203 | Geohash: "34.742221,-120.57243" | Days Old: 18197
+Debris ID: 26222 | Name: CZ-4 DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: -158.5481305 | Avg Longitude -177.5567996 | Geohash: "38.849086,111.608497" | Days Old: 9243
+Debris ID: 33776 | Name: IRIDIUM 33 DEB | Country: US | Orbit: LEO | Launch Year: 1997 | Longitude: -161.531332 | Avg Longitude -162.0095456 | Geohash: "45.965,63.305" | Days Old: 10003
+Debris ID: 12529 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Launch Year: 1976 | Longitude: -49.97556469 | Avg Longitude 63.24844584 | Geohash: "34.742221,-120.57243" | Days Old: 17720
+Debris ID: 50802 | Name: COSMOS 2499 DEB | Country: CIS | Orbit: LEO | Launch Year: 2014 | Longitude: 0.0 | Avg Longitude 84.37778856 | Geohash: "62.925556,40.577778" | Days Old: 3908
+Debris ID: 29301 | Name: METEOR 2-17 DEB | Country: CIS | Orbit: LEO | Launch Year: 1988 | Longitude: -141.5791444 | Avg Longitude 53.88615572 | Geohash: "62.925556,40.577778" | Days Old: 13518
+Debris ID: 32119 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Launch Year: 1999 | Longitude: 156.1541958 | Avg Longitude -76.53691091 | Geohash: "38.849086,111.608497" | Days Old: 9400
+Debris ID: 61819 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Launch Year: 2024 | Longitude: 0.0 | Avg Longitude 22.59503966 | Geohash: "38.849086,111.608497" | Days Old: 180
+Debris ID: 12542 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Launch Year: 1976 | Longitude: -32.49004766 | Avg Longitude 127.1862917 | Geohash: "34.742221,-120.57243" | Days Old: 17720
+Debris ID: 55551 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Launch Year: 2022 | Longitude: -1.727916014 | Avg Longitude 120.2147444 | Geohash: "38.849086,111.608497" | Days Old: 814

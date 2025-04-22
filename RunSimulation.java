@@ -1,6 +1,5 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.SyncFailedException;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -13,7 +12,7 @@ import java.util.HashMap;
  */
 public class RunSimulation {
 
-    public static void main(String[] args) throws FileNotFoundException,IOException {
+    public static void main(String[] args) throws IOException {
         //need to make a while loop for it but this is just an example
 
         Filereader file = new Filereader();
@@ -89,7 +88,7 @@ public class RunSimulation {
                             }
 
                             file.reWriteCSV(debrisMap);
-                            System.out.println("Risk level and Orbit status has been evaluated" + "\nChanges have been made in rso_metrics_write.csv");
+                            System.out.println("Risk level and Orbit status has been evaluated" + "\nChanges have been made in rso_metrics_write.csv" + "\nExited debris can be viewed in debris_orbit.txt");
                             log.log("Scientist assessed orbit status, object in orbit changed, risk level changed");
                         }else{
                             System.out.println("Invalid Choice");
