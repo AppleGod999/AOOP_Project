@@ -1,6 +1,16 @@
 import java.util.Scanner;
+
+/**
+ * I/O class, handles menus
+ * @author Diego
+ * @version 1.0
+ */
 public class UI {
 
+    /**
+     * prints main menu
+     * @return
+     */
     int displayMenu(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Low Earth Orbit (LEO) Tracking System:");
@@ -12,8 +22,11 @@ public class UI {
 
         return scanner.nextInt();
     }
-    //thinking of adding some sort of security check
-    // like checking for if a scientist exist via id
+
+    /**
+     * prints the scientist menu
+     * @return returns choice
+     */
     int displayScientist(){
         Scanner sc = new Scanner(System.in);
 
@@ -25,6 +38,10 @@ public class UI {
         return sc.nextInt();
     }
 
+    /**
+     * prints the tracking objects menu
+     * @return returns choice
+     */
     int showTrackObjects(){
         Scanner sc = new Scanner(System.in);
 
@@ -37,6 +54,10 @@ public class UI {
         return sc.nextInt();
     }
 
+    /**
+     * prints orbit status
+     * @return returns choice
+     */
     int showOrbitStatus(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Orbit Status:");
@@ -45,6 +66,10 @@ public class UI {
         return sc.nextInt();
     }
 
+    /**
+     * prints space reg menu
+     * @return returns choice
+     */
     int displaySpaceReg(){
 
         Scanner sc = new Scanner(System.in);
@@ -55,6 +80,10 @@ public class UI {
         return sc.nextInt();
     }
 
+    /**
+     * prints policymaker menu
+     * @return returns choice
+     */
     int displayPolicymaker(){
         Scanner sc = new Scanner(System.in);
 
@@ -64,6 +93,10 @@ public class UI {
         return sc.nextInt();
     }
 
+    /**
+     * prints admin meny
+     * @return returns choice
+     */
     int displayAdmin(){
         Scanner sc = new Scanner(System.in);
 

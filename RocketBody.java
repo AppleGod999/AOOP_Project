@@ -21,6 +21,9 @@ public class RocketBody extends SpaceObject{
         this.conjunctionCount = conjunctionCount;
     }
 
+    /**
+     * Prints the info from a payload
+     */
     @Override
     public void displayInfo() {
         System.out.println("Rocket Body ID: " + recordId + " | Name: " + satelliteName +

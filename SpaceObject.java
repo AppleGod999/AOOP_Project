@@ -67,6 +67,12 @@ public abstract class SpaceObject {
 
     //(optionally, add getters/setters later if needed depending on the need of the project as we go)
 
+    /**
+     * Space Object factory, creates the child classes depending on input
+     * @param type the type of object to create
+     * @param data array of data to create object
+     * @return returns the desired object
+     */
     public static SpaceObject create (String type,String[] data){
 
         if(type.equals("DEBRIS")){
@@ -141,6 +147,11 @@ public abstract class SpaceObject {
         return null;
     }
 
+    /**
+     * filters global map by LEO
+     * @param map global map of all space objects
+     * @return returns map of only objects with LEO
+     */
     public static Map<Integer, SpaceObject> sortLeo(Map<Integer, SpaceObject> map) {
         Map<Integer, SpaceObject> leoMap = new HashMap<Integer, SpaceObject>();
 

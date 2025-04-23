@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * reads and writes in the rso_metrics files.
  *
- * @auther Diego
+ * @author Diego
  * @version 1.0
  */
 public class Filereader {
@@ -38,7 +38,7 @@ public class Filereader {
     /**
      * takes a debris hashmap then updates the objects and writes changes into a new file
      * @param map hashmap of debris objects
-     * @throws IOException
+     * @throws IOException if a file or buffered writer fails
      */
     void reWriteCSV(Map<Integer,Debris> map) throws IOException {
         File ogfile = new File("rso_metrics.csv");

@@ -1,3 +1,9 @@
+/**
+ * child of SpaceObject, mainly used as a way to sort/organize space objcets
+ *
+ * @author Diego
+ * @version 1.0
+ */
 public class Payload extends SpaceObject{
 
     private boolean isNominated;

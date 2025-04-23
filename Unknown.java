@@ -1,3 +1,9 @@
+/**
+ * other object class to sort space objects
+ * child of space objects
+ * @author Diego
+ * @version 1.0
+ */
 public class Unknown extends SpaceObject {
 
 
@@ -24,6 +30,9 @@ public class Unknown extends SpaceObject {
         this.conjunctionCount = conjunctionCount;
     }
 
+    /**
+     * prints unknown object info
+     */
     @Override
     public void displayInfo() {
         System.out.println("Unknown ID: " + recordId + " | Name: " + satelliteName +

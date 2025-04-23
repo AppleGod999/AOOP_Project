@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
  * [2024-10-10 12:40:25] Scientist filtered by LEO orbit.
  * 
  * @author Miguel
+ * @author Diego
  * @version 1.0
  */
 public class Logger {
@@ -29,7 +30,6 @@ public class Logger {
      * Appends a message to the log file with a timestamp.
      * @param message the message to log
      */
-
     public void log(String message) {
         String timestamp = LocalDateTime.now().format(tsFormatter);
         String logEntry  = "[" + timestamp + "] " + message;

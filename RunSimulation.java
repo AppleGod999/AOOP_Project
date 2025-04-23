@@ -4,10 +4,11 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Simple test runner to verify Debris and SpaceObject functionality.
- * This version avoids CSV loading and uses hardcoded values.
+ * Runs entire program
+ * Does everything basically
  * 
  * @author Miguel
+ * @author Diego
  * @version 1.0
  */
 public class RunSimulation {

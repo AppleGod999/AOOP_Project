@@ -37,10 +37,16 @@ public class Debris extends SpaceObject {
     // Getters
     // =====================
 
+    /**
+     * @return still in orbit
+     */
     public boolean isStillInOrbit() {
         return stillInOrbit;
     }
 
+    /**
+     * @return risk level
+     */
     public String getRiskLevel() {
         return riskLevel;
     }

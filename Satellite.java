@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * Satellite class, lowkey useless not sure why we needed it
+ * @author Diego
+ */
 public class Satellite extends SpaceObject{
 
     private boolean isNominated;
