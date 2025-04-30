@@ -22,24 +22,24 @@ public class RunSimulation {
         UI screen = new UI();
         Logger log = new Logger("logs/");
 
-        Map<Integer,Debris> debrisMap = new HashMap<>();
-        Map<Integer,RocketBody> RocketMap = new HashMap<>();
-        Map<Integer,Payload> payloadMap = new HashMap<>();
-        Map<Integer,Unknown> unknownMap = new HashMap<>();
-
-        for (Map.Entry<Integer,SpaceObject> e : data.entrySet()) {
-            Integer id = e.getKey();
-            SpaceObject so = e.getValue();
-            if (so instanceof Debris){
-                debrisMap.put(id, (Debris)so);
-            }else if (so instanceof RocketBody){
-                RocketMap.put(id, (RocketBody)so);
-            }else if (so instanceof Payload){
-                payloadMap.put(id, (Payload)so);
-            }else if (so instanceof Unknown){
-                unknownMap.put(id, (Unknown)so);
-            }
-        }
+//        Map<Integer,Debris> debrisMap = new HashMap<>();
+//        Map<Integer,RocketBody> RocketMap = new HashMap<>();
+//        Map<Integer,Payload> payloadMap = new HashMap<>();
+//        Map<Integer,Unknown> unknownMap = new HashMap<>();
+//
+//        for (Map.Entry<Integer,SpaceObject> e : data.entrySet()) {
+//            Integer id = e.getKey();
+//            SpaceObject so = e.getValue();
+//            if (so instanceof Debris){
+//                debrisMap.put(id, (Debris)so);
+//            }else if (so instanceof RocketBody){
+//                RocketMap.put(id, (RocketBody)so);
+//            }else if (so instanceof Payload){
+//                payloadMap.put(id, (Payload)so);
+//            }else if (so instanceof Unknown){
+//                unknownMap.put(id, (Unknown)so);
+//            }
+//        }
 
         while (!done){
             int choice = screen.displayMenu();
@@ -51,25 +51,25 @@ public class RunSimulation {
                     if (scienceChoice == 1){
                         int track = screen.showTrackObjects();
                         if (track == 1) {
-                            for (RocketBody rb : RocketMap.values()) {
-                                rb.displayInfo();
-
-                            }
-                            log.log("Scientist tracking rocket body in orbit.");
+//                            for (RocketBody rb : RocketMap.values()) {
+//                                rb.displayInfo();
+//
+//                            }
+//                            log.log("Scientist tracking rocket body in orbit.");
                         }else if (track == 2){
-                            for (Debris d : debrisMap.values()) {
-                                d.displayInfo();
-                            }
+//                            for (Debris d : debrisMap.values()) {
+//                                d.displayInfo();
+//                            }
                             log.log("Scientist tracking debris in orbit.");
                         }else if (track == 3){
-                            for (Payload p : payloadMap.values()) {
-                                p.displayInfo();
-                            }
+//                            for (Payload p : payloadMap.values()) {
+//                                p.displayInfo();
+//                            }
                             log.log("Scientist tracking payload in orbit.");
                         }else if (track == 4){
-                            for (Unknown u : unknownMap.values()) {
-                                u.displayInfo();
-                            }
+//                            for (Unknown u : unknownMap.values()) {
+//                                u.displayInfo();
+//                            }
                             log.log("Scientist tracking unknown space objects in orbit.");
                         }
                     }else if (scienceChoice == 2){
@@ -83,12 +83,12 @@ public class RunSimulation {
                             log.log("Scientist tracking LEO objects in orbit.");
                         }else if(sob == 2){
 
-                            for(Debris d : debrisMap.values()){
-                                d.assessOrbitStatus();
-                                d.calculateRiskLevel();
-                            }
-
-                            file.reWriteCSV(debrisMap);
+//                            for(Debris d : debrisMap.values()){
+//                                d.assessOrbitStatus();
+//                                d.calculateRiskLevel();
+//                            }
+//
+//                            file.reWriteCSV(debrisMap);
                             System.out.println("Risk level and Orbit status has been evaluated" + "\nChanges have been made in rso_metrics_write.csv" + "\nExited debris can be viewed in debris_orbit.txt");
                             log.log("Scientist assessed orbit status, object in orbit changed, risk level changed");
                         }else{

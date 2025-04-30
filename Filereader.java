@@ -16,20 +16,37 @@ public class Filereader {
      * @throws FileNotFoundException if file is not found
      */
     Map<Integer,SpaceObject> parseCsv() throws FileNotFoundException{
-        File file = new File("rso_metrics.csv");
+        File file = new File("rso_metrics_columns_jumbled.csv");
         Scanner sc = new Scanner(file);
 
-        SpaceObject factory = null;
-
         Map<Integer,SpaceObject> map = new HashMap<>();
+        String[] th = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+        Map<String,Integer> header = getHeader(th);
 
-        sc.nextLine();
+//conjunction_count,all_maneuvers,days_since_ob,recent_maneuvers,deltaV_90day,has_sister_debris,Risk_Level,Still_in_Orbit
         while(sc.hasNext()){
             String[] data = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 
-            SpaceObject so = SpaceObject.create(data[5],data);
+            SpaceObject so = new SpaceObject(
+                    data[header.get("record_id")],
+                    data[header.get("norad_cat_id")],
+                    data[header.get("satellite_name")],
+                    data[header.get("country")],
+                    data[header.get("approximate_orbit_type")],
+                    data[header.get("object_type")],
+                    Integer.parseInt(data[header.get("launch_year")]),
+                    data[header.get("launch_site")],
+                    Double.parseDouble(data[header.get("longitude")]),
+                    Double.parseDouble(data[header.get("avg_longitude")]),
+                    data[header.get("geohash")],
+                    Integer.parseInt(data[header.get("days_old")]),
+                    Boolean.parseBoolean(data[header.get("is_nominated")]),
+                    Boolean.parseBoolean(data[header.get("has_dossier")]),
+                    Boolean.parseBoolean(data[header.get("is_unk_object")]),
+                    Integer.parseInt(data[header.get("conjunction_count")])
 
-            map.put(Integer.parseInt(data[0]),so);
+            );
+            map.put(Integer.parseInt(data[header.get("record_id")]),so);
         }
 
         return map;
@@ -40,7 +57,7 @@ public class Filereader {
      * @param map hashmap of debris objects
      * @throws IOException if a file or buffered writer fails
      */
-    void reWriteCSV(Map<Integer,Debris> map) throws IOException {
+    void reWriteCSV(Map<Integer,SpaceObject> map) throws IOException {
         File ogfile = new File("rso_metrics.csv");
         File newfile = new File("rso_metrics_write.csv");
         File changefile = new File("debris_orbit.txt");
@@ -81,7 +98,7 @@ public class Filereader {
             resultFile.write("Debris out of Orbit: " + outOrbit);
             resultFile.newLine();
 
-            for(Debris d : map.values()){
+            for(SpaceObject d : map.values()){
                 if(!d.isStillInOrbit()) {
                   resultFile.write(d.display());
                   resultFile.newLine();
@@ -90,6 +107,16 @@ public class Filereader {
 
 
         }
+    }
+
+    Map<String, Integer> getHeader(String[] headers){
+        Map<String, Integer> header = new HashMap<>();
+
+        for(int i=0;i<headers.length;i++){
+            header.put(headers[i].trim(),i);
+        }
+
+        return header;
     }
 }
 

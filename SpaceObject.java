@@ -8,7 +8,7 @@ import java.util.Map;
  * @author Miguel
  * @version 1.0
  */
-public abstract class SpaceObject {
+public class SpaceObject {
 
     // =====================
     //fields
@@ -18,6 +18,7 @@ public abstract class SpaceObject {
     protected String satelliteName;
     protected String country;
     protected String orbitType;
+    protected String type;
     protected int launchYear;
     protected String launchSite;
     protected double longitude;
@@ -26,13 +27,19 @@ public abstract class SpaceObject {
     protected int daysOld;
     protected boolean stillInOrbit;
     protected String riskLevel;
+    private boolean isNominated;
+    private boolean hasDossier;
+    private boolean isUnknownObject;
+    private long conjunctionCount;
 
     // =====================
     // Constructor
     // =====================
+    public SpaceObject(){}
     public SpaceObject(String recordId, String noradCatId, String satelliteName,
-                       String country, String orbitType, int launchYear, String launchSite,
-                       double longitude, double avgLongitude, String geohash, int daysOld) {
+                       String country, String orbitType, String type, int launchYear, String launchSite,
+                       double longitude, double avgLongitude, String geohash, int daysOld,
+                       boolean isNominated, boolean hasDossier, boolean isUnknownObject, long conjunctionCount) {
         this.recordId = recordId;
         this.noradCatId = noradCatId;
         this.satelliteName = satelliteName;
@@ -44,6 +51,11 @@ public abstract class SpaceObject {
         this.avgLongitude = avgLongitude;
         this.geohash = geohash;
         this.daysOld = daysOld;
+        this.type = type;
+        this.isNominated = isNominated;
+        this.hasDossier = hasDossier;
+        this.isUnknownObject = isUnknownObject;
+        this.conjunctionCount = conjunctionCount;
     }
 
     // =====================
@@ -52,7 +64,21 @@ public abstract class SpaceObject {
     /**
      *displays general information about the space object.
      */
-    public abstract void displayInfo();
+    public void displayInfo(){
+
+        String type = this.type;
+        System.out.println(type + " ID: " + recordId + " | Name: " + satelliteName +
+                " | Country: " + country + " | Orbit: " + orbitType + " | Launch Year: " + launchYear +
+                " | Longitude: " + longitude + " | Avg Longitude " + avgLongitude + " | Geohash: " + geohash +
+                " | Days Old: " + daysOld);
+    };
+
+    public String display(){
+        return type + " ID: " + recordId + " | Name: " + satelliteName +
+                " | Country: " + country + " | Orbit: " + orbitType + " | Launch Year: " + launchYear +
+                " | Longitude: " + longitude + " | Avg Longitude " + avgLongitude + " | Geohash: " + geohash +
+                " | Days Old: " + daysOld;
+    }
 
     // =====================
     //utility Methods
@@ -63,88 +89,6 @@ public abstract class SpaceObject {
      */
     public double calculateDrift() {
         return Math.abs(this.longitude - this.avgLongitude);
-    }
-
-    //(optionally, add getters/setters later if needed depending on the need of the project as we go)
-
-    /**
-     * Space Object factory, creates the child classes depending on input
-     * @param type the type of object to create
-     * @param data array of data to create object
-     * @return returns the desired object
-     */
-    public static SpaceObject create (String type,String[] data){
-
-        if(type.equals("DEBRIS")){
-            return new Debris(
-                    data[0], //record_id
-                    data[1], //norad_id
-                    data[2], //satellite name
-                    data[3], //country
-                    data[4], // approx orbit
-                    Integer.parseInt(data[6].trim()), // launch year
-                    data[7], // launch_site
-                    Double.parseDouble(data[8].trim()), //longitude
-                    Double.parseDouble(data[9].trim()), //avg longitude
-                    data[10], //geohash
-                    Integer.parseInt(data[18].trim()), //days old
-                    Boolean.parseBoolean(data[12].trim()), //is nominated
-                    Boolean.parseBoolean(data[14].trim()), //has dossier
-                    Boolean.parseBoolean(data[20].trim()), //isUnknown
-                    Long.parseLong(data[19].trim()));//conjunction
-        }else if (type.equals("ROCKET BODY")){
-            return new RocketBody(
-                    data[0], //record_id
-                    data[1], //norad_id
-                    data[2], //satellite name
-                    data[3], //country
-                    data[4], // approx orbit
-                    Integer.parseInt(data[6].trim()), // launch year
-                    data[7], // launch_site
-                    Double.parseDouble(data[8].trim()), //longitude
-                    Double.parseDouble(data[9].trim()), //avg longitude
-                    data[10], //geohash
-                    Integer.parseInt(data[18].trim()), //days old
-                    Boolean.parseBoolean(data[12].trim()), //is nominated
-                    Boolean.parseBoolean(data[14].trim()), //has dossier
-                    Boolean.parseBoolean(data[20].trim()), //isUnknown
-                    Long.parseLong(data[19].trim()));//conjunction
-        }else if (type.equals("PAYLOAD")){
-            return new Payload(
-                    data[0], //record_id
-                    data[1], //norad_id
-                    data[2], //satellite name
-                    data[3], //country
-                    data[4], // approx orbit
-                    Integer.parseInt(data[6].trim()), // launch year
-                    data[7], // launch_site
-                    Double.parseDouble(data[8].trim()), //longitude
-                    Double.parseDouble(data[9].trim()), //avg longitude
-                    data[10], //geohash
-                    Integer.parseInt(data[18].trim()), //days old
-                    Boolean.parseBoolean(data[12].trim()), //is nominated
-                    Boolean.parseBoolean(data[14].trim()), //has dossier
-                    Boolean.parseBoolean(data[20].trim()), //isUnknown
-                    Long.parseLong(data[19]));//conjunction
-        }else if(type.equals("UNKNOWN")){
-            return new Unknown(
-                    data[0], //record_id
-                    data[1], //norad_id
-                    data[2], //satellite name
-                    data[3], //country
-                    data[4], // approx orbit
-                    Integer.parseInt(data[6].trim()), // launch year
-                    data[7], // launch_site
-                    Double.parseDouble(data[8].trim()), //longitude
-                    Double.parseDouble(data[9].trim()), //avg longitude
-                    data[10], //geohash
-                    Integer.parseInt(data[18].trim()), //days old
-                    Boolean.parseBoolean(data[12].trim()), //is nominated
-                    Boolean.parseBoolean(data[14].trim()), //has dossier
-                    Boolean.parseBoolean(data[20].trim()), //isUnknown
-                    Long.parseLong(data[19].trim()));//conjunction
-        }
-        return null;
     }
 
     /**
@@ -163,6 +107,47 @@ public abstract class SpaceObject {
             }
         }
         return leoMap;
+    }
+
+    /**
+     *assess if debris is still in orbit using logic based on assignment criteria.
+     */
+    public void assessOrbitStatus() {
+        boolean hasOrbit = (orbitType != null && !orbitType.isEmpty()) && !orbitType.equals("Unknown Orbit Category");
+        boolean validLongitude = longitude != 0.0;
+        boolean recentEnough = daysOld < 15000;
+        boolean seenRecently = conjunctionCount >= 1;
+
+        stillInOrbit = hasOrbit && validLongitude && recentEnough && seenRecently;
+    }
+
+    /**
+     * @return still in orbit
+     */
+    public boolean isStillInOrbit() {
+        return stillInOrbit;
+    }
+
+    /**
+     * @return risk level
+     */
+    public String getRiskLevel() {
+        return riskLevel;
+    }
+
+    /**
+     * calculates risk level based on orbital drift.
+     */
+    public void calculateRiskLevel() {
+        double drift = calculateDrift();
+        if (drift > 50) {
+            riskLevel = "HIGH";
+        } else if (drift > 10) {
+            riskLevel = "MODERATE";
+        } else {
+            riskLevel = "LOW";
+        }
+
     }
 }
 
