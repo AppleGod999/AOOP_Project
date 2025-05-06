@@ -11,7 +11,7 @@
  * @author Diego
  * @version 1.0
  */
-public abstract class User {
+public abstract class User implements UserExt{
     /** The username of the user. */
     protected String username;
     /** The password for the user. */
@@ -63,4 +63,16 @@ public abstract class User {
      * Each subclass must implement its own version of this method.
      */
     public abstract void displayMenu();
+
+    public User factory(String[] data){
+
+        if (data[2].equals("Scientist")){
+            return new Scientist(data[0],data[1]);
+        }else if (data[2].equals("Admin")) {
+            return new Administrator(data[0], data[1]);
+        }else if (data[2].equals("SpaceAgencyRep")) {
+            return  new SpaceAgencyRep(data[0], data[1]);
+        }
+        return null;
+    }
 }

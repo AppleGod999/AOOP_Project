@@ -15,15 +15,14 @@ public class Filereader {
      * @return Hashmap with int as key and spaceobject as the value
      * @throws FileNotFoundException if file is not found
      */
-    Map<Integer,SpaceObject> parseCsv() throws FileNotFoundException{
+    HashMap<Integer,SpaceObject> parseCsv() throws FileNotFoundException{
         File file = new File("rso_metrics_columns_jumbled.csv");
         Scanner sc = new Scanner(file);
 
-        Map<Integer,SpaceObject> map = new HashMap<>();
+        HashMap<Integer,SpaceObject> map = new HashMap<>();
         String[] th = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-        Map<String,Integer> header = getHeader(th);
+        HashMap<String,Integer> header = getHeader(th);
 
-//conjunction_count,all_maneuvers,days_since_ob,recent_maneuvers,deltaV_90day,has_sister_debris,Risk_Level,Still_in_Orbit
         while(sc.hasNext()){
             String[] data = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 
@@ -109,14 +108,46 @@ public class Filereader {
         }
     }
 
-    Map<String, Integer> getHeader(String[] headers){
-        Map<String, Integer> header = new HashMap<>();
+    HashMap<String, Integer> getHeader(String[] headers){
+        HashMap<String, Integer> header = new HashMap<>();
 
         for(int i=0;i<headers.length;i++){
             header.put(headers[i].trim(),i);
         }
 
         return header;
+    }
+
+    public HashMap<String,User> GenUsers() throws FileNotFoundException {
+        HashMap<String,User> users = new HashMap<>();
+
+        File file = new File("UserPassword.csv");
+        Scanner scan = new Scanner(file);
+        User u = null;
+        scan.nextLine();
+
+        while(scan.hasNextLine()){
+            String[] data = scan.nextLine().split(",");
+            users.put(data[0],u.factory(data));
+        }
+
+        return users;
+    }
+
+    public void saveUsers(HashMap<String,User> users) throws IOException {
+        File file = new File("UserPassword.csv");
+
+        try(Scanner sc = new Scanner(file);
+            BufferedWriter writer = Files.newBufferedWriter(file.toPath());)
+        {
+            writer.write("Users,Password,Role");
+            writer.newLine();
+
+            for(User user : users.values()){
+                writer.write(user.getUsername() + "," + user.password + "," + user.getRole());
+                writer.newLine();
+            }
+        }
     }
 }
 

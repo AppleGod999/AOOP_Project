@@ -7,6 +7,29 @@ import java.util.Scanner;
  */
 public class UI {
 
+
+    /**
+     * Display's start meny
+     * @return array containing string and password
+     */
+    String[] displayStart(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Welcome to Tracking System! \n\tEnter User ID:");
+        String userID = input.nextLine();
+        System.out.print("\n\tEnter Password:");
+        String password = input.nextLine();
+
+        return new String[]{userID, password};
+    }
+
+    /**
+     * prints message m
+     * @param m string containing a message
+     */
+    void printMessage(String m){
+        System.out.println(m);
+    }
     /**
      * prints main menu
      * @return
@@ -73,9 +96,10 @@ public class UI {
     int displaySpaceReg(){
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("1. Analyze Long-term Impact");
-        System.out.println("2. Generate Density Reports");
-        System.out.println("3. Back");
+        System.out.println("Space Representative:");
+        System.out.println("\t1. Analyze Long-term Impact");
+        System.out.println("\t2. Generate Density Reports");
+        System.out.println("\t3. Back");
 
         return sc.nextInt();
     }
@@ -87,9 +111,10 @@ public class UI {
     int displayPolicymaker(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("1. Review Reports on Debris Impact");
-        System.out.println("2. Asses Risk Levels for Future Space Missions");
-        System.out.println("3. Back");
+        System.out.println("Policymaker:");
+        System.out.println("\t1. Review Reports on Debris Impact");
+        System.out.println("\t2. Asses Risk Levels for Future Space Missions");
+        System.out.println("\t3. Back");
         return sc.nextInt();
     }
 
@@ -100,10 +125,11 @@ public class UI {
     int displayAdmin(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("1. Create User");
-        System.out.println("2. Manage User");
-        System.out.println("3. Delete User");
-        System.out.println("4. Back");
+        System.out.println("Admin:");
+        System.out.println("\t1. Create User");
+        System.out.println("\t2. Manage User");
+        System.out.println("\t3. Delete User");
+        System.out.println("\t4. Back");
         return sc.nextInt();
     }
 

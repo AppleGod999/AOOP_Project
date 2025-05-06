@@ -18,7 +18,7 @@ public class Administrator extends User {
      * @param username the administrator's username
      */
     public Administrator(String username, String password) {
-        super(username, password, "Administrator");
+        super(username, password, "Admin");
     }
 
     /**

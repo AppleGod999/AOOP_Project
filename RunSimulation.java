@@ -17,7 +17,7 @@ public class RunSimulation {
         //need to make a while loop for it but this is just an example
 
         Filereader file = new Filereader();
-        Map<Integer,SpaceObject> data = file.parseCsv();
+        Database data = new Database(file.parseCsv(),file.GenUsers());
         boolean done = false;
         UI screen = new UI();
         Logger log = new Logger("logs/");
