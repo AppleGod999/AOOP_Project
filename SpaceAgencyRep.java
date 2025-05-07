@@ -22,15 +22,5 @@ public class SpaceAgencyRep extends User {
         super(username, password, "SpaceAgencyRep");
     }
 
-    /**
-     * Displays the menu for the Space Agency Representative, listing available actions
-     * such as analyzing long-term impact and generating density reports.
-     */
-    @Override
-    public void displayMenu() {
-        System.out.println("\n=== Space Agency Representative Menu ===");
-        System.out.println("1. Analyze Long-Term Impact");
-        System.out.println("2. Generate Density Reports");
-        System.out.println("3. Back to Main Menu");
-    }
+
 }

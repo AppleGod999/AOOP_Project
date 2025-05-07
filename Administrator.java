@@ -25,12 +25,5 @@ public class Administrator extends User {
      * Displays the Administrator-specific menu and handles user input.
      * This includes creating, managing, and deleting users.
      */
-    @Override
-    public void displayMenu() {
-        System.out.println("\n=== Administrator Menu ===");
-        System.out.println("1. Create User");
-        System.out.println("2. Manage User");
-        System.out.println("3. Delete User");
-        System.out.println("4. Back to Main Menu");
-    }
+
 }

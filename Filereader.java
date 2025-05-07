@@ -25,12 +25,11 @@ public class Filereader {
 
         while(sc.hasNext()){
             String[] data = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-
             SpaceObject so = new SpaceObject(
                     data[header.get("record_id")],
                     data[header.get("norad_cat_id")],
                     data[header.get("satellite_name")],
-                    data[header.get("country")],
+                    data[header.get('\uFEFF'+"country")],
                     data[header.get("approximate_orbit_type")],
                     data[header.get("object_type")],
                     Integer.parseInt(data[header.get("launch_year")]),
@@ -115,6 +114,7 @@ public class Filereader {
             header.put(headers[i].trim(),i);
         }
 
+
         return header;
     }
 
@@ -124,7 +124,9 @@ public class Filereader {
         File file = new File("UserPassword.csv");
         Scanner scan = new Scanner(file);
         User u = null;
-        scan.nextLine();
+        if (scan.hasNextLine()) {
+            scan.nextLine();
+        }
 
         while(scan.hasNextLine()){
             String[] data = scan.nextLine().split(",");

@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Represents a Scientist user in the space object tracking system.
  * <p>
@@ -21,15 +25,30 @@ public class Scientist extends User {
         super(username, password, "Scientist");
     }
 
-    /**
-     * Displays the menu for the Scientist user, including options to track objects
-     * and assess orbit status.
-     */
-    @Override
-    public void displayMenu() {
-        System.out.println("\n=== Scientist Menu ===");
-        System.out.println("1. Track Objects in Space");
-        System.out.println("2. Assess Orbit Status");
-        System.out.println("3. Back to Main Menu");
+    void trackObjects(HashMap<Integer, SpaceObject> map, String object){
+        for (SpaceObject o : map.values()) {
+            if (o.type.equals(object)){
+                o.displayInfo();
+            }
+        }
+    }
+
+    void trackLEO(HashMap<Integer, SpaceObject> map){
+        Map<Integer,SpaceObject> leoObject = SpaceObject.sortLeo(map);
+        for (SpaceObject so : leoObject.values()) {
+            so.displayInfo();
+        }
+    }
+
+    void assesDebris(HashMap<Integer, SpaceObject> map,Filereader file) throws IOException {
+        HashMap<Integer,SpaceObject> debrisMap = new HashMap<>();
+        for(SpaceObject d : map.values()) {
+            if(d.type.equals("DEBRIS")) {
+                d.assessOrbitStatus();
+                d.calculateRiskLevel();
+
+            }
+        }
+        file.reWriteCSV(debrisMap);
     }
 }

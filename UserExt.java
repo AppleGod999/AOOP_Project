@@ -18,9 +18,4 @@ public interface UserExt {
      */
     String getRole();
 
-    /**
-     * Display a role-specific menu for the user.
-     * Each concrete subclass provides its own implementation.
-     */
-    void displayMenu();
 }

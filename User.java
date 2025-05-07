@@ -58,11 +58,7 @@ public abstract class User implements UserExt{
         return role;
     }
 
-    /**
-     * Abstract method to display a role-specific menu for the user.
-     * Each subclass must implement its own version of this method.
-     */
-    public abstract void displayMenu();
+
 
     public User factory(String[] data){
 

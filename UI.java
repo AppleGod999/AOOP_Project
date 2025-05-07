@@ -12,10 +12,10 @@ public class UI {
      * Display's start meny
      * @return array containing string and password
      */
-    String[] displayStart(){
+    String[] displayStart(String obj){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Welcome to Tracking System! \n\tEnter User ID:");
+        System.out.print("Enter " +obj+ "\n\tEnter User ID:");
         String userID = input.nextLine();
         System.out.print("\n\tEnter Password:");
         String password = input.nextLine();

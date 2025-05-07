@@ -29,6 +29,13 @@ public class Database {
         }
     }
 
+    HashMap<Integer, SpaceObject> getSpaceRepo(){
+        return this.spaceobj;
+    }
+    HashMap<String,User> getUserRepo(){
+        return this.users;
+    }
+
     void addSpaceObject(SpaceObject so) {
         this.spaceobj.put(Integer.parseInt(so.recordId),so);
     }
