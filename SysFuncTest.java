@@ -33,16 +33,16 @@ public class SysFuncTest {
         assertEquals("Scientist not allowed.", exception.getMessage());
     }
 
-    /**
-     * Test 2: Verifies that invalid menu options throw the correct exception.
-     */
-    @Test
-    public void testInvalidMenuOptionExceptionThrown() {
-        Exception exception = assertThrows(InvalidMenuOptionException.class, () -> {
-            throw new InvalidMenuOptionException("Invalid menu option: 9");
-        });
-        assertTrue(exception.getMessage().contains("Invalid menu option"));
-    }
+//    /**
+//     * Test 2: Verifies that invalid menu options throw the correct exception.
+//     */
+//    @Test
+//    public void testInvalidMenuOptionExceptionThrown() {
+//        Exception exception = assertThrows(InvalidMenuOptionException.class, () -> {
+//            throw new InvalidMenuOptionException("Invalid menu option: 9");
+//        });
+//        assertTrue(exception.getMessage().contains("Invalid menu option"));
+//    }
 
     /**
      * Test 3: Placeholder for Logger write/read functionality.

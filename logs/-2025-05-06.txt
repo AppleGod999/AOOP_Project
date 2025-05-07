@@ -3,3 +3,10 @@
 [2025-05-06 20:43:54] User tried to access area they didnt have access too
 [2025-05-06 20:46:38] Userglobaltried to access Scientist
 [2025-05-06 20:46:38] User tried to access area they didnt have access too
+[2025-05-06 21:19:39] New user has been created by global
+[2025-05-06 21:19:50] Scientist tracking rocket body in orbit.
+[2025-05-06 21:19:54] Scientist tracking debris in orbit.
+[2025-05-06 21:19:57] Scientist tracking payload in orbit.
+[2025-05-06 21:19:59] Scientist tracking unknown space objects in orbit.
+[2025-05-06 21:20:05] Scientist tracking LEO objects in orbit.
+[2025-05-06 21:27:07] Scientist assessed orbit status, object in orbit changed, risk level changed

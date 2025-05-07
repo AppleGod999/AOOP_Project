@@ -69,6 +69,7 @@ public class Filereader {
             BufferedWriter writer = Files.newBufferedWriter(newfile.toPath());
             BufferedWriter resultFile = Files.newBufferedWriter(changefile.toPath()))
         {
+
             String header = sc.nextLine();
             writer.write(header + ",Risk_Level,Still_in_Orbit");
             writer.newLine();

@@ -15,9 +15,9 @@ public class UI {
     String[] displayStart(){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Login:");
-        System.out.print("\tEnter User ID:");
+        System.out.print("\tEnter User ID: ");
         String userID = input.nextLine();
-        System.out.print("\tEnter Password:");
+        System.out.print("\tEnter Password: ");
         String password = input.nextLine();
 
         return new String[]{userID, password};
@@ -45,13 +45,13 @@ public class UI {
         try{
             String in = scanner.nextLine();
             if(in.equals("EXIT")) {
-                return -1;
+                return 5;
             }
             return Integer.parseInt(in.trim());
         }catch (NumberFormatException e){
-            return -2;
+            return -1;
         }catch (Exception e){
-            return -3;
+            return -2;
         }
 
     }
@@ -175,11 +175,11 @@ public class UI {
     String[] displayCreateUser(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Create New User");
-        System.out.print("\tEnter New Username");
+        System.out.print("\tEnter New Username: ");
         String name = scan.nextLine();
-        System.out.print("\tEnter New User Password");
-        String password = scan.nextLine();;
-        System.out.print("\tEnter New Use Role");
+        System.out.print("\tEnter New User Password: ");
+        String password = scan.nextLine();
+        System.out.print("\tEnter New Use Role: ");
         String role = scan.nextLine();
 
         return new String[]{name,password,role};
@@ -188,14 +188,14 @@ public class UI {
     String displayManageUser(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Manage User");
-        System.out.println("\tEnter Username to manage User");
+        System.out.println("\tEnter Username to manage User: ");
         return scan.nextLine();
     }
 
     String displayDeleteUser(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Delete User");
-        System.out.print("\tEnter Username to delete User");
+        System.out.print("\tEnter Username to delete User: ");
         System.out.println();
         return sc.nextLine();
     }

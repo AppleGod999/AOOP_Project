@@ -44,6 +44,7 @@ public class Scientist extends User {
         HashMap<Integer,SpaceObject> debrisMap = new HashMap<>();
         for(SpaceObject d : map.values()) {
             if(d.type.equals("DEBRIS")) {
+                debrisMap.put(Integer.parseInt(d.recordId),d);
                 d.assessOrbitStatus();
                 d.calculateRiskLevel();
 
