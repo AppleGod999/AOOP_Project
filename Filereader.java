@@ -130,7 +130,7 @@ public class Filereader {
 
         while(scan.hasNextLine()){
             String[] data = scan.nextLine().split(",");
-            users.put(data[0],u.factory(data));
+            users.put(data[0], User.factory(data));
         }
 
         return users;

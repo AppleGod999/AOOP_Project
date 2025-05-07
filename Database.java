@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Database {
 
     HashMap<Integer, SpaceObject> spaceobj;
-    HashMap<String,User> users;
+    HashMap<String, User> users;
     HashMap<String, Scientist> scientists = new HashMap<>();
     HashMap<String, Administrator> administrators = new HashMap<>();
     HashMap<String, SpaceAgencyRep> spaceAgencyReps = new HashMap<>();
@@ -14,14 +14,7 @@ public class Database {
 
 
         for(User user : users.values()){
-            if (user instanceof Scientist){
-                this.scientists.put(user.getUsername(), (Scientist) user);
-            }
-            else if (user instanceof Administrator){
-                this.administrators.put(user.getUsername(), (Administrator) user);
-            }else if (user instanceof SpaceAgencyRep){
-                this.spaceAgencyReps.put(user.getUsername(), (SpaceAgencyRep) user);
-            }
+            addUser(user);
         }
 
         if (!this.administrators.containsKey("global")) {
@@ -40,6 +33,25 @@ public class Database {
         this.spaceobj.put(Integer.parseInt(so.recordId),so);
     }
 
+    User getUser(String name){
+        if(users.containsKey(name)){
+            return users.get(name);
+        }
+        return null;
+    }
+
+    void addUser(User user){
+        if (user != null) {
+            this.users.put(user.getUsername(),user);
+            if (user instanceof Scientist) {
+                this.scientists.put(user.getUsername(), (Scientist) user);
+            } else if (user instanceof Administrator) {
+                this.administrators.put(user.getUsername(), (Administrator) user);
+            } else if (user instanceof SpaceAgencyRep) {
+                this.spaceAgencyReps.put(user.getUsername(), (SpaceAgencyRep) user);
+            }
+        }
+    }
 
     SpaceObject getSpaceObject(int id) {
         return spaceobj.get(id);

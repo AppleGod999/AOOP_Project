@@ -83,7 +83,7 @@ public class RunSimulation {
                     int spaceRegChoice = screen.displaySpaceReg();
 
                     if(spaceRegChoice == 1){
-                        System.out.println("WIP Sorry :(");
+
 
                     }else if (spaceRegChoice == 2){
                         System.out.println("WIP Sorry :(");
@@ -115,26 +115,33 @@ public class RunSimulation {
                 }
             }else if (choice == 4){
                 boolean adminDone = false;
-                while(!adminDone){
-                    int adminChoice = screen.displayAdmin();
+                String[] avalid= screen.displayStart("Admin");
+                Administrator a = data.getAdministrator(avalid[0],avalid[1]);
+                if(a!=null){
+                    while(!adminDone){
+                        int adminChoice = screen.displayAdmin();
 
-                    if (adminChoice == 1){
-                        System.out.println("WIP Sorry :(");
-                    }else if (adminChoice == 2){
-                        System.out.println("WIP Sorry :(");
+                        if (adminChoice == 1){
+                            a.createUser(data,screen,file);
 
-                    }else if (adminChoice == 3){
-                        System.out.println("WIP Sorry :(");
 
-                    }else if (adminChoice == 4){
-                        adminDone = true;
-                    }else{
-                        System.out.println("Invalid Choice");
+                        }else if (adminChoice == 2){
+                            a.manageUser(data,screen,file);
+
+                        }else if (adminChoice == 3){
+                            a.deleteUser(data,screen,file);
+
+                        }else if (adminChoice == 4){
+                            adminDone = true;
+                        }else{
+                            System.out.println("Invalid Choice");
+                        }
                     }
                 }
 
 
-            }else if (choice == 5){
+
+            }else if (choice == 5 || choice == -1){
                 done = true;
             }else{
                 System.out.println("Invalid Choice");

@@ -23,4 +23,10 @@ public class SpaceAgencyRep extends User {
     }
 
 
+    public void assessLongterm() {
+    }
+
+    public void generateDensityReport(){
+
+    }
 }

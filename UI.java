@@ -17,7 +17,7 @@ public class UI {
 
         System.out.print("Enter " +obj+ "\n\tEnter User ID:");
         String userID = input.nextLine();
-        System.out.print("\n\tEnter Password:");
+        System.out.print("\tEnter Password:");
         String password = input.nextLine();
 
         return new String[]{userID, password};
@@ -42,8 +42,18 @@ public class UI {
         System.out.println("\t3.Policymaker");
         System.out.println("\t4.Adminstrator");
         System.out.println("\t5.Exit");
+        try{
+            String in = scanner.nextLine();
+            if(in.equals("EXIT")) {
+                return -1;
+            }
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -2;
+        }catch (Exception e){
+            return -3;
+        }
 
-        return scanner.nextInt();
     }
 
     /**
@@ -57,8 +67,12 @@ public class UI {
         System.out.println("\t1.Track Objects in Space");
         System.out.println("\t2.Assess Orbit Status");
         System.out.println("\t3.Back");
-
-        return sc.nextInt();
+        try{
+            String in = sc.nextLine();
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -1;
+        }
     }
 
     /**
@@ -74,7 +88,12 @@ public class UI {
         System.out.println("\t3.Payload");
         System.out.println("\t4.Unknown");
 
-        return sc.nextInt();
+        try{
+            String in = sc.nextLine();
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -1;
+        }
     }
 
     /**
@@ -86,7 +105,12 @@ public class UI {
         System.out.println("Orbit Status:");
         System.out.println("\t1.Track Objects in LEO");
         System.out.println("\t2.Assess if debris still in orbit");
-        return sc.nextInt();
+        try{
+            String in = sc.nextLine();
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -1;
+        }
     }
 
     /**
@@ -101,7 +125,12 @@ public class UI {
         System.out.println("\t2. Generate Density Reports");
         System.out.println("\t3. Back");
 
-        return sc.nextInt();
+        try{
+            String in = sc.nextLine();
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -1;
+        }
     }
 
     /**
@@ -115,7 +144,12 @@ public class UI {
         System.out.println("\t1. Review Reports on Debris Impact");
         System.out.println("\t2. Asses Risk Levels for Future Space Missions");
         System.out.println("\t3. Back");
-        return sc.nextInt();
+        try{
+            String in = sc.nextLine();
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -1;
+        }
     }
 
     /**
@@ -130,7 +164,40 @@ public class UI {
         System.out.println("\t2. Manage User");
         System.out.println("\t3. Delete User");
         System.out.println("\t4. Back");
-        return sc.nextInt();
+        try{
+            String in = sc.nextLine();
+            return Integer.parseInt(in.trim());
+        }catch (NumberFormatException e){
+            return -1;
+        }
+    }
+
+    String[] displayCreateUser(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Create New User");
+        System.out.print("\tEnter New Username");
+        String name = scan.nextLine();
+        System.out.print("\tEnter New User Password");
+        String password = scan.nextLine();;
+        System.out.print("\tEnter New Use Role");
+        String role = scan.nextLine();
+
+        return new String[]{name,password,role};
+    }
+
+    String displayManageUser(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Manage User");
+        System.out.println("\tEnter Username to manage User");
+        return scan.nextLine();
+    }
+
+    String displayDeleteUser(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Delete User");
+        System.out.print("\tEnter Username to delete User");
+        System.out.println();
+        return sc.nextLine();
     }
 
 }

@@ -58,9 +58,16 @@ public abstract class User implements UserExt{
         return role;
     }
 
+    public void setName(String name){
+        this.username = name;
+    }
+
+    public void setPassword (String password){
+        this.password = password;
+    }
 
 
-    public User factory(String[] data){
+    public static User factory(String[] data){
 
         if (data[2].equals("Scientist")){
             return new Scientist(data[0],data[1]);
