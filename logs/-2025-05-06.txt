@@ -10,3 +10,11 @@
 [2025-05-06 21:19:59] Scientist tracking unknown space objects in orbit.
 [2025-05-06 21:20:05] Scientist tracking LEO objects in orbit.
 [2025-05-06 21:27:07] Scientist assessed orbit status, object in orbit changed, risk level changed
+[2025-05-06 21:59:27] New user has been created by global
+[2025-05-06 22:01:38] New user has been created by global
+[2025-05-06 22:01:49] User assessed long term impacts
+[2025-05-06 22:13:35] User tried to access Admin
+[2025-05-06 22:13:35] User tried to access functions they dont have access to
+[2025-05-06 22:14:41] User tried to access Space Representative
+[2025-05-06 22:14:41] User tried to access functions they dont have access to
+[2025-05-06 22:15:18] User generated density report

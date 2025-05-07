@@ -200,4 +200,23 @@ public class UI {
         return sc.nextLine();
     }
 
+    void displayLongTerm(){
+        System.out.println("Generating Long Term Report");
+    }
+
+    double[] displayDensityReport(){
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Generate Density Report");
+            System.out.print("\tEnter Minimum Longitude (ex. 12.1234567) :");
+            double min = sc.nextDouble();
+            System.out.print("\tEnter Maximum Longitude (ex. 12.1234567) :");
+            double max = sc.nextDouble();
+            return new double[]{min,max};
+        }catch (NumberFormatException e){
+            System.out.println("Invalid input");
+        }
+        return null;
+    }
+
 }

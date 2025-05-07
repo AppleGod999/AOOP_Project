@@ -76,21 +76,22 @@ public class RunSimulation {
                                 }
                             }
                         } else {
-                            log.log("User " + u.username + "tried to access Scientist");
-                            throw new UnauthorizedAccessException("User " + u.username + " tried to access Scientist");
+                            log.log("User tried to access Scientist");
+                            throw new UnauthorizedAccessException("User tried to access Scientist");
                         }
                     } else if (choice == 2) {
                         if (u instanceof SpaceAgencyRep r) {
                             boolean spaceDone = false;
                             while (!spaceDone) {
-
                                 int spaceRegChoice = screen.displaySpaceReg();
 
                                 if (spaceRegChoice == 1) {
-
+                                    r.assessLongterm(data,screen);
+                                    log.log("User assessed long term impacts");
 
                                 } else if (spaceRegChoice == 2) {
-                                    System.out.println("WIP Sorry :(");
+                                    r.generateDensityReport(data,screen);
+                                    log.log("User generated density report");
 
                                 } else if (spaceRegChoice == 3) {
                                     spaceDone = true;
@@ -99,8 +100,8 @@ public class RunSimulation {
                                 }
                             }
                         } else {
-                            log.log("User " + u.username + "tried to access Space Representative");
-                            throw new UnauthorizedAccessException("User " + u.username + " tried to access Space Representative");
+                            log.log("User tried to access Space Representative");
+                            throw new UnauthorizedAccessException("User tried to access Space Representative");
                         }
 
                     } else if (choice == 3) {
@@ -148,8 +149,8 @@ public class RunSimulation {
                                 }
                             }
                         } else {
-                            log.log("User " + u.username + "tried to access Admin");
-                            throw new UnauthorizedAccessException("User " + u.username + " tried to access Admin");
+                            log.log("User tried to access Admin");
+                            throw new UnauthorizedAccessException("User tried to access Admin");
                         }
                     } else {
                         System.out.println("Invalid Choice");

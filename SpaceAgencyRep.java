@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * Represents a Space Agency Representative user in the space object tracking system.
  * <p>
@@ -23,10 +25,40 @@ public class SpaceAgencyRep extends User {
     }
 
 
-    public void assessLongterm() {
+    public void assessLongterm(Database db,UI s){
+
+        s.displayLongTerm();
+
+        HashMap<Integer,SpaceObject> map = db.getSpaceRepo();
+        for(SpaceObject so : map.values()){
+            if(so.orbitType.equals("LEO") && so.daysOld > 200 && so.conjunctionCount > 0){
+                System.out.println("Record ID: " + so.recordId + " | Name: " + so.satelliteName +
+                        " | Country: " + so.country + " | Orbit Type: " + so.orbitType +
+                        " | Object Type: " + so.type + " | Days Old " + so.daysOld +" | Conjuction Count " + so.conjunctionCount);
+            }
+        }
     }
 
-    public void generateDensityReport(){
+    public void generateDensityReport(Database db, UI s){
+        double[] d = s.displayDensityReport();
+        HashMap<Integer, SpaceObject> map = db.getSpaceRepo();
+        int count = 0;
 
+        for(SpaceObject so : map.values()){
+            double longitude = so.longitude;
+            if(longitude >= d[0] && longitude <= d[1]){
+                count++;
+            }
+        }
+        System.out.println("Total Number of Objects in Range: " + count);
+
+        for(SpaceObject so : map.values()){
+            double longitude = so.longitude;
+            if(longitude >= d[0] && longitude <= d[1]){
+                System.out.println("Record ID " + so.recordId + " | Name: " + so.satelliteName +
+                        " | Country: " + so.country + " | Orbit Type: " + so.orbitType + " | Launch Year " +
+                        so.launchYear + " | Object Type: " + so.type);
+            }
+        }
     }
 }

@@ -27,10 +27,10 @@ public class SpaceObject {
     protected int daysOld;
     protected boolean stillInOrbit;
     protected String riskLevel;
-    private boolean isNominated;
-    private boolean hasDossier;
-    private boolean isUnknownObject;
-    private long conjunctionCount;
+    protected boolean isNominated;
+    protected boolean hasDossier;
+    protected boolean isUnknownObject;
+    protected long conjunctionCount;
 
     // =====================
     // Constructor
