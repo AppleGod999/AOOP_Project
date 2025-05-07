@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Map;
 
 /**
  * Runs entire program
@@ -19,132 +18,142 @@ public class RunSimulation {
         Logger log = new Logger("logs/");
 
 
+        while (!done) {
+            User u = null;
+            try {
+                int choice = screen.displayMenu();
+                String[] valid = screen.displayStart();
+                u = data.getUser(valid[0], valid[1]);
 
-        while (!done){
-            int choice = screen.displayMenu();
+                if (choice == 1) {
+                    if (u instanceof Scientist s) {
+                        boolean scienceDone = false;
+                        while (!scienceDone) {
+                            int scienceChoice = screen.displayScientist();
+                            if (scienceChoice == 1) {
+                                int track = screen.showTrackObjects();
+                                if (track == 1) {
 
+                                    s.trackObjects(data.getSpaceRepo(), "ROCKET BODY");
+                                    log.log("Scientist tracking rocket body in orbit.");
+                                } else if (track == 2) {
 
-            if (choice == 1){
-                String[] svalid= screen.displayStart("Scientist");
-                Scientist s = data.getScientist(svalid[0],svalid[1]);
+                                    s.trackObjects(data.getSpaceRepo(), "DEBRIS");
+                                    log.log("Scientist tracking debris in orbit.");
+                                } else if (track == 3) {
 
-                if(s!=null){
-                    boolean scienceDone = false;
-                    while(!scienceDone){
+                                    s.trackObjects(data.getSpaceRepo(), "PAYLOAD");
+                                    log.log("Scientist tracking payload in orbit.");
+                                } else if (track == 4) {
 
-                        int scienceChoice = screen.displayScientist();
-                        if (scienceChoice == 1){
-                            int track = screen.showTrackObjects();
-                            if (track == 1) {
+                                    s.trackObjects(data.getSpaceRepo(), "UNKNOWN");
+                                    log.log("Scientist tracking unknown space objects in orbit.");
+                                }
+                            } else if (scienceChoice == 2) {
 
-                                s.trackObjects(data.getSpaceRepo(),"ROCKET BODY");
-                                log.log("Scientist tracking rocket body in orbit.");
-                            }else if (track == 2){
+                                int sob = screen.showOrbitStatus();
+                                if (sob == 1) {
 
-                                s.trackObjects(data.getSpaceRepo(),"DEBRIS");
-                                log.log("Scientist tracking debris in orbit.");
-                            }else if (track == 3){
+                                    s.trackLEO(data.getSpaceRepo());
+                                    log.log("Scientist tracking LEO objects in orbit.");
+                                } else if (sob == 2) {
 
-                                s.trackObjects(data.getSpaceRepo(),"PAYLOAD");
-                                log.log("Scientist tracking payload in orbit.");
-                            }else if (track == 4){
-
-                                s.trackObjects(data.getSpaceRepo(),"UNKNOWN");
-                                log.log("Scientist tracking unknown space objects in orbit.");
-                            }
-                        }else if (scienceChoice == 2){
-
-                            int sob = screen.showOrbitStatus();
-                            if(sob == 1){
-
-                                s.trackLEO(data.getSpaceRepo());
-                                log.log("Scientist tracking LEO objects in orbit.");
-                            }else if(sob == 2){
-
-                                s.assesDebris(data.getSpaceRepo(),file);
-                                screen.printMessage("Risk level and Orbit status has been evaluated" + "\nChanges have been made in rso_metrics_write.csv" + "\nExited debris can be viewed in debris_orbit.txt");
-                                log.log("Scientist assessed orbit status, object in orbit changed, risk level changed");
-                            }else{
+                                    s.assesDebris(data.getSpaceRepo(), file);
+                                    screen.printMessage("Risk level and Orbit status has been evaluated" + "\nChanges have been made in rso_metrics_write.csv" + "\nExited debris can be viewed in debris_orbit.txt");
+                                    log.log("Scientist assessed orbit status, object in orbit changed, risk level changed");
+                                } else {
+                                    System.out.println("Invalid Choice");
+                                }
+                            } else if (scienceChoice == 3) {
+                                scienceDone = true;
+                            } else {
                                 System.out.println("Invalid Choice");
                             }
-                        }else if (scienceChoice == 3){
-                            scienceDone = true;
-                        }else{
+                        }
+                    } else {
+                        log.log("User " + u.username + "tried to access Scientist");
+                        throw new UnauthorizedAccessException("User " + u.username + " tried to access Scientist");
+                    }
+                } else if (choice == 2) {
+                    if (u instanceof SpaceAgencyRep r) {
+                        boolean spaceDone = false;
+                        while (!spaceDone) {
+
+                            int spaceRegChoice = screen.displaySpaceReg();
+
+                            if (spaceRegChoice == 1) {
+
+
+                            } else if (spaceRegChoice == 2) {
+                                System.out.println("WIP Sorry :(");
+
+                            } else if (spaceRegChoice == 3) {
+                                spaceDone = true;
+                            } else {
+                                System.out.println("Invalid Choice");
+                            }
+                        }
+                    }else{
+                        log.log("User " + u.username + "tried to access Space Representative");
+                        throw new UnauthorizedAccessException("User " + u.username + " tried to access Space Representative");
+                    }
+
+                } else if (choice == 3) {
+                    boolean policyDone = false;
+                    while (!policyDone) {
+                        int policyChoice = screen.displayPolicymaker();
+
+                        if (policyChoice == 1) {
+                            System.out.println("WIP Sorry :(");
+
+                        } else if (policyChoice == 2) {
+                            System.out.println("WIP Sorry :(");
+
+                        } else if (policyChoice == 3) {
+                            policyDone = true;
+                        } else {
                             System.out.println("Invalid Choice");
                         }
+
                     }
-                }else{
-                    screen.printMessage("Invalid ID or Password");
-                }
-            }else if (choice == 2){
-                boolean spaceDone = false;
-                while(!spaceDone){
+                } else if (choice == 4) {
+                    if(u instanceof Administrator a) {
+                        boolean adminDone = false;
+                        if (a != null) {
+                            while (!adminDone) {
+                                int adminChoice = screen.displayAdmin();
 
-                    int spaceRegChoice = screen.displaySpaceReg();
+                                if (adminChoice == 1) {
+                                    a.createUser(data, screen, file);
+                                    log.log("New user has been created by " + u.getUsername());
 
-                    if(spaceRegChoice == 1){
+                                } else if (adminChoice == 2) {
+                                    a.manageUser(data, screen, file);
+                                    log.log(u.getUsername() + " has managed a user");
 
+                                } else if (adminChoice == 3) {
+                                    a.deleteUser(data, screen, file);
+                                    log.log(u.getUsername() + " has deleted a user");
 
-                    }else if (spaceRegChoice == 2){
-                        System.out.println("WIP Sorry :(");
-
-                    }else if (spaceRegChoice== 3){
-                        spaceDone = true;
-                    }else{
-                        System.out.println("Invalid Choice");
-                    }
-                }
-
-            }else if (choice == 3){
-                boolean policyDone = false;
-                while(!policyDone){
-                    int policyChoice = screen.displayPolicymaker();
-
-                    if(policyChoice == 1){
-                        System.out.println("WIP Sorry :(");
-
-                    }else if (policyChoice == 2){
-                        System.out.println("WIP Sorry :(");
-
-                    }else if (policyChoice == 3){
-                        policyDone = true;
-                    }else{
-                        System.out.println("Invalid Choice");
-                    }
-
-                }
-            }else if (choice == 4){
-                boolean adminDone = false;
-                String[] avalid= screen.displayStart("Admin");
-                Administrator a = data.getAdministrator(avalid[0],avalid[1]);
-                if(a!=null){
-                    while(!adminDone){
-                        int adminChoice = screen.displayAdmin();
-
-                        if (adminChoice == 1){
-                            a.createUser(data,screen,file);
-
-
-                        }else if (adminChoice == 2){
-                            a.manageUser(data,screen,file);
-
-                        }else if (adminChoice == 3){
-                            a.deleteUser(data,screen,file);
-
-                        }else if (adminChoice == 4){
-                            adminDone = true;
-                        }else{
-                            System.out.println("Invalid Choice");
+                                } else if (adminChoice == 4) {
+                                    adminDone = true;
+                                } else {
+                                    System.out.println("Invalid Choice");
+                                }
+                            }
                         }
+                    }else{
+                        log.log("User " + u.username + "tried to access Admin");
+                        throw new UnauthorizedAccessException("User " + u.username + " tried to access Admin");
                     }
+                } else if (choice == 5 || choice == -1) {
+                    done = true;
+                } else {
+                    System.out.println("Invalid Choice");
                 }
-
-
-
-            }else if (choice == 5 || choice == -1){
-                done = true;
-            }else{
-                System.out.println("Invalid Choice");
+            } catch (UnauthorizedAccessException e) {
+                System.out.println(e.getMessage());
+                log.log("User tried to access functions they dont have access to");
             }
         }
 

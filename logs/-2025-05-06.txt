@@ -1,0 +1,5 @@
+[2025-05-06 20:42:16] User global tried to access area they didnt have access too
+[2025-05-06 20:43:07] User tried to access area they didnt have access too
+[2025-05-06 20:43:54] User tried to access area they didnt have access too
+[2025-05-06 20:46:38] Userglobaltried to access Scientist
+[2025-05-06 20:46:38] User tried to access area they didnt have access too

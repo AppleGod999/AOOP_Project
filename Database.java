@@ -18,7 +18,9 @@ public class Database {
         }
 
         if (!this.administrators.containsKey("global")) {
-            this.administrators.put("global", new Administrator("global", "global"));
+            Administrator a = new Administrator("global", "global");
+            this.administrators.put("global", a);
+            this.users.put("global",a);
         }
     }
 
@@ -40,15 +42,26 @@ public class Database {
         return null;
     }
 
+    User getUser(String name, String password){
+        if(users.containsKey(name)){
+            if(users.get(name).validatePassword(password)){
+                return users.get(name);
+            }
+        }
+        return null;
+    }
+
     void addUser(User user){
         if (user != null) {
-            this.users.put(user.getUsername(),user);
             if (user instanceof Scientist) {
                 this.scientists.put(user.getUsername(), (Scientist) user);
+                this.users.put(user.getUsername(), user);
             } else if (user instanceof Administrator) {
                 this.administrators.put(user.getUsername(), (Administrator) user);
+                this.users.put(user.getUsername(),user);
             } else if (user instanceof SpaceAgencyRep) {
                 this.spaceAgencyReps.put(user.getUsername(), (SpaceAgencyRep) user);
+                this.users.put(user.getUsername(),user);
             }
         }
     }

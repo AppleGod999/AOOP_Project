@@ -13,49 +13,51 @@ public class Filereader {
     /**
      * reads rso_metrics file and assigns an object based on the data from the file
      * @return Hashmap with int as key and spaceobject as the value
-     * @throws FileNotFoundException if file is not found
      */
-    HashMap<Integer,SpaceObject> parseCsv() throws FileNotFoundException{
-        File file = new File("rso_metrics_columns_jumbled.csv");
-        Scanner sc = new Scanner(file);
+    HashMap<Integer,SpaceObject> parseCsv(){
+        try {
+            File file = new File("rso_metrics_columns_jumbled.csv");
+            Scanner sc = new Scanner(file);
 
-        HashMap<Integer,SpaceObject> map = new HashMap<>();
-        String[] th = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-        HashMap<String,Integer> header = getHeader(th);
+            HashMap<Integer, SpaceObject> map = new HashMap<>();
+            String[] th = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+            HashMap<String, Integer> header = getHeader(th);
 
-        while(sc.hasNext()){
-            String[] data = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-            SpaceObject so = new SpaceObject(
-                    data[header.get("record_id")],
-                    data[header.get("norad_cat_id")],
-                    data[header.get("satellite_name")],
-                    data[header.get('\uFEFF'+"country")],
-                    data[header.get("approximate_orbit_type")],
-                    data[header.get("object_type")],
-                    Integer.parseInt(data[header.get("launch_year")]),
-                    data[header.get("launch_site")],
-                    Double.parseDouble(data[header.get("longitude")]),
-                    Double.parseDouble(data[header.get("avg_longitude")]),
-                    data[header.get("geohash")],
-                    Integer.parseInt(data[header.get("days_old")]),
-                    Boolean.parseBoolean(data[header.get("is_nominated")]),
-                    Boolean.parseBoolean(data[header.get("has_dossier")]),
-                    Boolean.parseBoolean(data[header.get("is_unk_object")]),
-                    Integer.parseInt(data[header.get("conjunction_count")])
+            while (sc.hasNext()) {
+                String[] data = sc.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                SpaceObject so = new SpaceObject(
+                        data[header.get("record_id")],
+                        data[header.get("norad_cat_id")],
+                        data[header.get("satellite_name")],
+                        data[header.get('\uFEFF' + "country")],
+                        data[header.get("approximate_orbit_type")],
+                        data[header.get("object_type")],
+                        Integer.parseInt(data[header.get("launch_year")]),
+                        data[header.get("launch_site")],
+                        Double.parseDouble(data[header.get("longitude")]),
+                        Double.parseDouble(data[header.get("avg_longitude")]),
+                        data[header.get("geohash")],
+                        Integer.parseInt(data[header.get("days_old")]),
+                        Boolean.parseBoolean(data[header.get("is_nominated")]),
+                        Boolean.parseBoolean(data[header.get("has_dossier")]),
+                        Boolean.parseBoolean(data[header.get("is_unk_object")]),
+                        Integer.parseInt(data[header.get("conjunction_count")])
 
-            );
-            map.put(Integer.parseInt(data[header.get("record_id")]),so);
+                );
+                map.put(Integer.parseInt(data[header.get("record_id")]), so);
+            }
+            return map;
+        }catch(FileNotFoundException e){
+            System.out.println("File not Found");
         }
-
-        return map;
+        return null;
     }
 
     /**
      * takes a debris hashmap then updates the objects and writes changes into a new file
      * @param map hashmap of debris objects
-     * @throws IOException if a file or buffered writer fails
-     */
-    void reWriteCSV(Map<Integer,SpaceObject> map) throws IOException {
+     * */
+    void reWriteCSV(Map<Integer,SpaceObject> map){
         File ogfile = new File("rso_metrics.csv");
         File newfile = new File("rso_metrics_write.csv");
         File changefile = new File("debris_orbit.txt");
@@ -104,6 +106,8 @@ public class Filereader {
             }
 
 
+        }catch (IOException e){
+            System.out.println("IO exception has occurred in reWriteCSV");
         }
     }
 
@@ -118,25 +122,27 @@ public class Filereader {
         return header;
     }
 
-    public HashMap<String,User> GenUsers() throws FileNotFoundException {
+    public HashMap<String,User> GenUsers(){
         HashMap<String,User> users = new HashMap<>();
+        try {
+            File file = new File("UserPassword.csv");
+            Scanner scan = new Scanner(file);
+            User u = null;
+            if (scan.hasNextLine()) {
+                scan.nextLine();
+            }
 
-        File file = new File("UserPassword.csv");
-        Scanner scan = new Scanner(file);
-        User u = null;
-        if (scan.hasNextLine()) {
-            scan.nextLine();
+            while (scan.hasNextLine()) {
+                String[] data = scan.nextLine().split(",");
+                users.put(data[0], User.factory(data));
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
         }
-
-        while(scan.hasNextLine()){
-            String[] data = scan.nextLine().split(",");
-            users.put(data[0], User.factory(data));
-        }
-
         return users;
     }
 
-    public void saveUsers(HashMap<String,User> users) throws IOException {
+    public void saveUsers(HashMap<String,User> users){
         File file = new File("UserPassword.csv");
 
         try(Scanner sc = new Scanner(file);
@@ -149,6 +155,8 @@ public class Filereader {
                 writer.write(user.getUsername() + "," + user.password + "," + user.getRole());
                 writer.newLine();
             }
+        }catch(IOException e){
+            System.out.println("IO exception has occurred in saveUsers");
         }
     }
 }
