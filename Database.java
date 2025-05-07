@@ -1,5 +1,10 @@
 import java.util.HashMap;
 
+/**
+ * Database class that holds all the data, holds spaceobject and user hashmaps
+ * @author Diego
+ * @version 1.0
+ */
 public class Database {
 
     HashMap<Integer, SpaceObject> spaceobj;
@@ -8,6 +13,11 @@ public class Database {
     HashMap<String, Administrator> administrators = new HashMap<>();
     HashMap<String, SpaceAgencyRep> spaceAgencyReps = new HashMap<>();
 
+    /**
+     * Database constructor, makes all the hashmaps
+     * @param spaceobj spaceobject hashmap
+     * @param users users hashmap
+     */
     public Database(HashMap<Integer, SpaceObject> spaceobj, HashMap<String,User> users) {
         this.spaceobj = spaceobj;
         this.users = users;
@@ -24,17 +34,26 @@ public class Database {
         }
     }
 
+    /**
+     * @return space object hashmap
+     */
     HashMap<Integer, SpaceObject> getSpaceRepo(){
         return this.spaceobj;
     }
+
+    /**
+     *
+     * @return user object hashmap
+     */
     HashMap<String,User> getUserRepo(){
         return this.users;
     }
 
-    void addSpaceObject(SpaceObject so) {
-        this.spaceobj.put(Integer.parseInt(so.recordId),so);
-    }
-
+    /**
+     * gets a user from repo
+     * @param name desired user
+     * @return returns user object
+     */
     User getUser(String name){
         if(users.containsKey(name)){
             return users.get(name);
@@ -42,6 +61,12 @@ public class Database {
         return null;
     }
 
+    /**
+     * gets user and validates password
+     * @param name name of user object
+     * @param password password of user object
+     * @return returns user object
+     */
     User getUser(String name, String password){
         if(users.containsKey(name)){
             if(users.get(name).validatePassword(password)){
@@ -51,6 +76,10 @@ public class Database {
         return null;
     }
 
+    /**
+     * adds user to both user hashmap and specific subclass hashmap
+     * @param user user object to add
+     */
     void addUser(User user){
         if (user != null) {
             if (user instanceof Scientist) {
@@ -66,50 +95,15 @@ public class Database {
         }
     }
 
-    SpaceObject getSpaceObject(int id) {
-        return spaceobj.get(id);
-    }
 
-    Scientist getScientist(String name, String password){
-        if (scientists.containsKey(name)){
-            if (scientists.get(name).validatePassword(password)){
-                return scientists.get(name);
-            }else{
-                return null;
-            }
-        }
-        return null;
-    }
-
-    Administrator getAdministrator(String name, String password){
-        if (administrators.containsKey(name)){
-            if (administrators.get(name).validatePassword(password)){
-                return administrators.get(name);
-            }else{
-                return null;
-            }
-        }
-        return null;
-    }
-
-    SpaceAgencyRep getSpaceAgencyRep(String name, String password){
-        if (spaceAgencyReps.containsKey(name)){
-            if (spaceAgencyReps.get(name).validatePassword(password)){
-                return spaceAgencyReps.get(name);
-            }else{
-                return null;
-            }
-        }
-        return null;
-    }
-
+    /**
+     * removes a user from user repo
+     * @param name name of user to remove
+     */
     void removeUser(String name){
         users.remove(name);
     }
 
-    void removeSpaceObject(int id) {
-        spaceobj.remove(id);
-    }
 
 
 }

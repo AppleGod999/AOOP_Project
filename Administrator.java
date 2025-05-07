@@ -25,7 +25,13 @@ public class Administrator extends User {
         super(username, password, "Admin");
     }
 
-    void createUser(Database db,UI s, Filereader f) throws IOException {
+    /**
+     * creates user
+     * @param db the database
+     * @param s ui class
+     * @param f filereader class
+     */
+    void createUser(Database db,UI s, Filereader f){
         String[] nu = s.displayCreateUser();
         User newuser = User.factory(nu);
         db.addUser(newuser);
@@ -33,7 +39,13 @@ public class Administrator extends User {
 
     }
 
-    void manageUser(Database db, UI s,Filereader f) throws IOException {
+    /**
+     * manages users, can change name or password
+     * @param db the datbase
+     * @param s the ui class
+     * @param f the filereader class
+     */
+    void manageUser(Database db, UI s,Filereader f){
         String uname = s.displayManageUser();
         User n = db.getUser(uname);
         if (n!=null){
@@ -63,7 +75,13 @@ public class Administrator extends User {
         }
     }
 
-    void deleteUser(Database db, UI s, Filereader f) throws IOException {
+    /**
+     * deletes user
+     * @param db the database
+     * @param s the ui class
+     * @param f the filereader class
+     */
+    void deleteUser(Database db, UI s, Filereader f){
         String del = s.displayDeleteUser();
         User u = db.getUser(del);
         boolean done = false;

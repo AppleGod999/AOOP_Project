@@ -25,6 +25,11 @@ public class Scientist extends User {
         super(username, password, "Scientist");
     }
 
+    /**
+     * prints specific type of space object
+     * @param map hashmap of spaceobjects
+     * @param object type of object to print
+     */
     void trackObjects(HashMap<Integer, SpaceObject> map, String object){
         for (SpaceObject o : map.values()) {
             if (o.type.equals(object)){
@@ -33,6 +38,10 @@ public class Scientist extends User {
         }
     }
 
+    /**
+     * prints all object in LEO
+     * @param map hashmap of spaceobjects
+     */
     void trackLEO(HashMap<Integer, SpaceObject> map){
         Map<Integer,SpaceObject> leoObject = SpaceObject.sortLeo(map);
         for (SpaceObject so : leoObject.values()) {
@@ -40,7 +49,12 @@ public class Scientist extends User {
         }
     }
 
-    void assesDebris(HashMap<Integer, SpaceObject> map,Filereader file) throws IOException {
+    /**
+     * adds orbit status and risk level to csv file for debris objects
+     * @param map hashmap of space objects
+     * @param file filereader object
+     */
+    void assesDebris(HashMap<Integer, SpaceObject> map,Filereader file){
         HashMap<Integer,SpaceObject> debrisMap = new HashMap<>();
         for(SpaceObject d : map.values()) {
             if(d.type.equals("DEBRIS")) {

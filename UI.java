@@ -172,6 +172,10 @@ public class UI {
         }
     }
 
+    /**
+     * display createuser menu
+     * @return array of new user info
+     */
     String[] displayCreateUser(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Create New User");
@@ -185,6 +189,10 @@ public class UI {
         return new String[]{name,password,role};
     }
 
+    /**
+     * display manage user menu
+     * @return user to manage
+     */
     String displayManageUser(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Manage User");
@@ -192,6 +200,10 @@ public class UI {
         return scan.nextLine();
     }
 
+    /**
+     * display delete user menu
+     * @return user to delete
+     */
     String displayDeleteUser(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Delete User");
@@ -200,10 +212,17 @@ public class UI {
         return sc.nextLine();
     }
 
+    /**
+     * prints generating long term report menu
+     */
     void displayLongTerm(){
         System.out.println("Generating Long Term Report");
     }
 
+    /**
+     * display density report menu
+     * @return array of longitude range
+     */
     double[] displayDensityReport(){
         try {
             Scanner sc = new Scanner(System.in);

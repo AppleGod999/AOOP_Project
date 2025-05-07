@@ -112,6 +112,11 @@ public class Filereader {
         }
     }
 
+    /**
+     * generates a hashmap of the correct columns indexes
+     * @param headers array containing file header
+     * @return returns hashmap of correct index values
+     */
     HashMap<String, Integer> getHeader(String[] headers){
         HashMap<String, Integer> header = new HashMap<>();
 
@@ -123,6 +128,10 @@ public class Filereader {
         return header;
     }
 
+    /**
+     * generates user objects from userpassword.csv
+     * @return hashmap of string - user objects
+     */
     public HashMap<String,User> GenUsers(){
         HashMap<String,User> users = new HashMap<>();
         try {
@@ -143,6 +152,10 @@ public class Filereader {
         return users;
     }
 
+    /**
+     * saves all users in repo to file
+     * @param users hashmap of users
+     */
     public void saveUsers(HashMap<String,User> users){
         File file = new File("UserPassword.csv");
 

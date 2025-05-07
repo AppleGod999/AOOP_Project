@@ -58,15 +58,27 @@ public abstract class User implements UserExt{
         return role;
     }
 
+    /**
+     * sets name of user
+     * @param name name of user
+     */
     public void setName(String name){
         this.username = name;
     }
 
+    /**
+     * sets password of user
+     * @param password password of user
+     */
     public void setPassword (String password){
         this.password = password;
     }
 
-
+    /**
+     * factory method for user subclasses
+     * @param data array of name, password, and role
+     * @return desired subclass object
+     */
     public static User factory(String[] data){
 
         if (data[2].equals("Scientist")){

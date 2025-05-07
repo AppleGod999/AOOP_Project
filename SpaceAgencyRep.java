@@ -25,6 +25,11 @@ public class SpaceAgencyRep extends User {
     }
 
 
+    /**
+     * prints objects if they are in LEO, > 200 days, and conjunction count > 0
+     * @param db database object
+     * @param s ui class
+     */
     public void assessLongterm(Database db,UI s){
 
         s.displayLongTerm();
@@ -39,6 +44,11 @@ public class SpaceAgencyRep extends User {
         }
     }
 
+    /**
+     * prints total number of objects within a longitude range
+     * @param db database object
+     * @param s ui object
+     */
     public void generateDensityReport(Database db, UI s){
         double[] d = s.displayDensityReport();
         HashMap<Integer, SpaceObject> map = db.getSpaceRepo();

@@ -73,6 +73,10 @@ public class SpaceObject {
                 " | Days Old: " + daysOld);
     };
 
+    /**
+     * to string for spaceobjects
+     * @return string of spaceobject info
+     */
     public String display(){
         return type + " ID: " + recordId + " | Name: " + satelliteName +
                 " | Country: " + country + " | Orbit: " + orbitType + " | Launch Year: " + launchYear +
